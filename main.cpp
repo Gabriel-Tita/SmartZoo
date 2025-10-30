@@ -241,6 +241,7 @@ int main()
     //punem in valoare operatorul << pentru clasa guest
     guest.generate_guests(list);
     cout<<guest;
+    cout<<lion;
 }
 
 
