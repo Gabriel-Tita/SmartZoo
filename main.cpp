@@ -9,8 +9,12 @@ private:
     int number;
     vector<string> name;
 
-    void update_number() {
+    void set_number() {
         number++;
+    }
+
+    void set_name(const string& name) {
+        this->name.push_back(name);
     }
 public:
     list_of_enclosures()=default;
@@ -22,8 +26,8 @@ public:
     ~list_of_enclosures()=default;
 
     void set_enclosure(const string& name) {
-        this->name.push_back(name);
-        update_number();
+        set_name(name);
+        set_number();
     }
 
     int get_number_of_enclosures() const{
@@ -34,7 +38,7 @@ public:
         return name[num];
     }
 
-    void afisare_informatii() {
+    void print_info() {
         cout<<"This is a list of all the enclosures that we currently have: "<<"\n";
         for (int i=0;i<number;i++) {
             cout<<"Number "<<i+1<<": "<<name[i]<<"\n";
@@ -68,7 +72,7 @@ public:
 
     ~enclosure()=default;
 
-    void afisare_informatii() {
+    void print_info() {
         cout<<"This is everything about the enclosures of the ";
         cout<<species<<"!\n";
         cout<<"The number of animals that can coexist in one single enclosure: "<<number_of_animals<<"\n";
@@ -144,7 +148,7 @@ public:
         return os;
     }
 
-    void afisare_informatii()
+    void print_info()
     {
         cout<<"This is what we know about the next animal!"<<"\n";
         cout<<"Species: "<<species_name<<"\n";
@@ -156,6 +160,9 @@ public:
         cout<<"The attractiveness (a number based on how rare this animal is): "<<attractiveness<<"\n";
         cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n\n";
     }
+
+
+
 };
 
 class Guest
@@ -163,6 +170,15 @@ class Guest
 private:
     vector <string> position;
     int number;
+
+    void set_number() {
+        number++;
+    }
+
+    void set_position(const list_of_enclosures& list, const int num) {
+        position.push_back(list.get_enclosure_species(num));
+    }
+
 public:
     Guest()=default;
 
@@ -175,8 +191,8 @@ public:
     void generate_guests(const list_of_enclosures& list){
         int number_of_enclosures=list.get_number_of_enclosures();
         for (int i=0;i<100;i++) {
-            position.push_back(list.get_enclosure_species(i%number_of_enclosures));
-            number++;
+            set_position(list, i%number_of_enclosures);
+            set_number();
         }
     }
 
@@ -188,7 +204,6 @@ public:
         os<<"\n";
         return os;
     }
-
 };
 
 int main()
@@ -202,9 +217,9 @@ int main()
     list.set_enclosure("Lion");
 
     // pentru a pune in valoare functiile de afisare
-    // lion.afisare_informatii();
-    // lion_enclosure.afisare_informatii();
-    // list.afisare_informatii();
+    lion.print_info();
+    lion_enclosure.print_info();
+    list.print_info();
 
     enclosure tiger_enclosure("Tiger", 2, 1);
     animal tiger("Tiger", "great", 1, 3, 1, 0, 87, 1);
@@ -215,14 +230,15 @@ int main()
     lion3=lion;
 
     //pentru a pune in valoare constructorul de copiere si operatorul de copiere
-    lion2.afisare_informatii();
-    lion3.afisare_informatii();
+    lion2.print_info();
+    lion3.print_info();
 
     //pentru a pune in valoare operatorul << pentru toate clasele
     cout<<tiger;
     cout<<tiger_enclosure;
     cout<<list;
 
+    //punem in valoare operatorul << pentru clasa guest
     guest.generate_guests(list);
     cout<<guest;
 }
