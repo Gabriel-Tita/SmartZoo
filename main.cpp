@@ -101,7 +101,9 @@ public:
         return *this;
     }
 
-    ~animal()=default;
+    ~animal() {
+        cout<<"Finalul programului! Toata memoria s-a dezalocat cu succes!\n";
+    }
 
     void afisare_informatii()
     {
@@ -143,20 +145,26 @@ int main()
     list_of_enclosures list(0);
     Guest guest(0);
 
-    animal lion("lion", "great", 2, 3, 1, 1, 84, 1);
+    // Am  adaugat 2 specii: leu si tigru
+    animal lion("Lion", "great", 2, 3, 1, 1, 84, 1);
+    animal tiger("Tiger", "great", 1, 3, 1, 0, 87, 1);
+
+    enclosure lion_enclosure("Lion", 4, 1);
+    enclosure tiger_enclosure("Tiger", 2, 1);
+
+    list.set_enclosure("Lion");
+    list.set_enclosure("Tiger");
+
     animal lion2=lion;
     animal lion3;
     lion3=lion;
-    enclosure lion_enclosure("lion", 4, 1);
-    list.set_enclosure("lion");
+
 
     //lion.afisare_informatii();
     //lion_enclosure.afisare_informatii();
     //list.afisare_informatii();
     //lion2.afisare_informatii();
     lion3.afisare_informatii();
-
-
 
     //generate_guests();
 }
