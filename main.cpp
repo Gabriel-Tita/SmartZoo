@@ -26,6 +26,14 @@ public:
         update_number();
     }
 
+    int get_number_of_enclosures() const{
+        return number;
+    }
+
+    string get_enclosure_species(const int num) const {
+        return name[num];
+    }
+
     void afisare_informatii() {
         cout<<"This is a list of all the enclosures that we currently have: "<<"\n";
         for (int i=0;i<number;i++) {
@@ -164,11 +172,23 @@ public:
 
     ~Guest()=default;
 
-    // void generate_guests() {
-    //     for (int i=0;i<100;i++) {
-    //
-    //     }
-    // }
+    void generate_guests(const list_of_enclosures& list){
+        int number_of_enclosures=list.get_number_of_enclosures();
+        for (int i=0;i<100;i++) {
+            position.push_back(list.get_enclosure_species(i%number_of_enclosures));
+            number++;
+        }
+    }
+
+    friend ostream& operator<<(ostream& os, const Guest& guest) {
+        os<<"This is the list with the location of each guest!"<<"\n";
+        for (int i=0;i<guest.number;i++) {
+            os<<"Guest number "<<i+1<<" is at the "<<guest.position[i]<<" enclosure"<<"\n";
+        }
+        os<<"\n";
+        return os;
+    }
+
 };
 
 int main()
@@ -203,7 +223,9 @@ int main()
     cout<<tiger_enclosure;
     cout<<list;
 
-    //generate_guests();
+    guest.generate_guests(list);
+    cout<<guest;
 }
+
 
 
