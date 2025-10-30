@@ -28,7 +28,7 @@ public:
 
     void afisare_informatii() {
         for (int i=0;i<number;i++) {
-            cout<<i<<" "<<name[i]<<" ";
+            cout<<i+1<<" "<<name[i]<<" ";
         }
     }
 };
@@ -50,9 +50,10 @@ public:
     ~enclosure()=default;
 
     void afisare_informatii() {
-        cout<<species<<", ";
-        cout<<number_of_animals<<", ";
-        cout<<number_of_enclosures<<"\n";
+        cout<<"This is everything about the enclosures of the ";
+        cout<<species<<"!\n";
+        cout<<"The number of animals that can coexist in one single enclosure: "<<number_of_animals<<"\n";
+        cout<<"The number of enclosures for this species that we currently have: "<<number_of_enclosures<<"\n";
     }
 };
 
@@ -80,14 +81,15 @@ public:
 
     void afisare_informatii()
     {
-        cout<<species_name<<", ";
-        cout<<health<<", ";
-        cout<<number<<", ";
-        cout<<viewing_platform<<", ";
-        cout<<male_number<<", ";
-        cout<<female_number<<", ";
-        cout<<attractiveness<<", ";
-        cout<<enclosure_number<<"\n";
+        cout<<"This is what we know about the next animal!"<<"\n";
+        cout<<"Species: "<<species_name<<"\n";
+        cout<<"The Health of the animals: "<<health<<"\n";
+        cout<<"The number of animals: "<<number<<"\n";
+        cout<<"The number of viewing platforms: "<<viewing_platform<<"\n";
+        cout<<"The number of males: "<<male_number<<"\n";
+        cout<<"The number of females: "<<female_number<<"\n";
+        cout<<"The attractiveness (a number based on how rare this animal is): "<<attractiveness<<"\n";
+        cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n";
     }
 };
 
@@ -102,7 +104,7 @@ public:
 int main()
 {
     list_of_enclosures list(0);
-    animal lion("lion", "great", 2, 3, 1, 1, 97, 2);
+    animal lion("lion", "great", 2, 3, 1, 1, 84, 1);
     enclosure lion_enclosure("lion", 4, 1);
     list.set_enclosure("lion");
     lion.afisare_informatii();
