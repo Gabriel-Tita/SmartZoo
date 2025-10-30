@@ -6,7 +6,7 @@ using namespace std;
 
 class list_of_enclosures {
 private:
-    int number;
+    int number=-1;
     vector<string> name;
 
     void set_number() {
@@ -59,8 +59,8 @@ public:
 class enclosure
 {
 private:
-    string species;
-    int number_of_animals, number_of_enclosures;
+    string species="Unknown";
+    int number_of_animals=-1, number_of_enclosures=-1;
 public:
     enclosure()=default;
 
@@ -91,8 +91,8 @@ public:
 class animal
 {
 private:
-    string species_name, health;
-    int number, viewing_platform, male_number, female_number, attractiveness, enclosure_number;
+    string species_name="Unknown", health="Unknown";
+    int number=-1, viewing_platform=-1, male_number=-1, female_number=-1, attractiveness=-1, enclosure_number=-1;
 public:
     animal()=default;
 
@@ -132,7 +132,7 @@ public:
     }
 
     ~animal() {
-        cout<<"Finalul programului! Toata memoria s-a dezalocat cu succes!\n";
+        cout<<"This is the end of the program!\n";
     }
 
     friend ostream& operator<<(ostream& os, const animal& animal) {
@@ -169,7 +169,7 @@ class Guest
 {
 private:
     vector <string> position;
-    int number;
+    int number=-1;
 
     void set_number() {
         number++;
