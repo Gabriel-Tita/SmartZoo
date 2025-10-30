@@ -1,5 +1,6 @@
 # SmartZoo
 SmartZoo este o aplicație concepută pentru a gestiona și a afișa informații despre o grădină zoo. Scopul principal al aplicației este de a oferi o modalitate simplă și interactivă de administrare a datelor referitoare la animale, habitate și vizitatori.
+
 ### Tema 0
 
 - [ ] Nume proiect (poate fi schimbat ulterior)
