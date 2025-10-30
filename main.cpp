@@ -19,14 +19,14 @@ private:
 public:
     list_of_enclosures()=default;
 
-    list_of_enclosures(const int number) {
+    explicit list_of_enclosures(const int number) {
         this->number=number;
     }
 
     ~list_of_enclosures()=default;
 
-    void set_enclosure(const string& name) {
-        set_name(name);
+    void set_enclosure(const string& Name) {
+        set_name(Name);
         set_number();
     }
 
@@ -182,7 +182,7 @@ private:
 public:
     Guest()=default;
 
-    Guest(const int number) {
+    explicit Guest(const int number) {
         this->number=number;
     }
 
@@ -241,7 +241,6 @@ int main()
     //punem in valoare operatorul << pentru clasa guest
     guest.generate_guests(list);
     cout<<guest;
-    cout<<lion;
 }
 
 
