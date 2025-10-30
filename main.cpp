@@ -13,8 +13,8 @@ private:
         number++;
     }
 
-    void set_name(const string& name) {
-        this->name.push_back(name);
+    void set_name(const string& Name) {
+        this->name.push_back(Name);
     }
 public:
     list_of_enclosures()=default;
