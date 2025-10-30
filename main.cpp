@@ -27,8 +27,9 @@ public:
     }
 
     void afisare_informatii() {
+        cout<<"This is a list of all the enclosures that we currently have: "<<"\n";
         for (int i=0;i<number;i++) {
-            cout<<i+1<<" "<<name[i]<<" ";
+            cout<<"Number "<<i+1<<": "<<name[i]<<"\n";
         }
     }
 };
@@ -53,7 +54,7 @@ public:
         cout<<"This is everything about the enclosures of the ";
         cout<<species<<"!\n";
         cout<<"The number of animals that can coexist in one single enclosure: "<<number_of_animals<<"\n";
-        cout<<"The number of enclosures for this species that we currently have: "<<number_of_enclosures<<"\n";
+        cout<<"The number of enclosures for this species that we currently have: "<<number_of_enclosures<<"\n\n";
     }
 };
 
@@ -77,6 +78,29 @@ public:
         this->enclosure_number=enclosure_number;
     }
 
+    animal(const animal& animal) {
+        this->species_name=animal.species_name;
+        this->health=animal.health;
+        this->number=animal.number;
+        this->viewing_platform=animal.viewing_platform;
+        this->male_number=animal.male_number;
+        this->female_number=animal.female_number;
+        this->attractiveness=animal.attractiveness;
+        this->enclosure_number=animal.enclosure_number;
+    }
+
+    animal& operator=(const animal& animal) {
+        this->species_name=animal.species_name;
+        this->health=animal.health;
+        this->number=animal.number;
+        this->viewing_platform=animal.viewing_platform;
+        this->male_number=animal.male_number;
+        this->female_number=animal.female_number;
+        this->attractiveness=animal.attractiveness;
+        this->enclosure_number=animal.enclosure_number;
+        return *this;
+    }
+
     ~animal()=default;
 
     void afisare_informatii()
@@ -89,33 +113,51 @@ public:
         cout<<"The number of males: "<<male_number<<"\n";
         cout<<"The number of females: "<<female_number<<"\n";
         cout<<"The attractiveness (a number based on how rare this animal is): "<<attractiveness<<"\n";
-        cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n";
+        cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n\n";
     }
 };
 
-class guest
+class Guest
 {
 private:
-    string current_position;
+    vector <string> position;
+    int number;
 public:
+    Guest()=default;
 
+    Guest(const int number) {
+        this->number=number;
+    }
+
+    ~Guest()=default;
+
+    // void generate_guests() {
+    //     for (int i=0;i<100;i++) {
+    //
+    //     }
+    // }
 };
 
 int main()
 {
     list_of_enclosures list(0);
+    Guest guest(0);
+
     animal lion("lion", "great", 2, 3, 1, 1, 84, 1);
+    animal lion2=lion;
+    animal lion3;
+    lion3=lion;
     enclosure lion_enclosure("lion", 4, 1);
     list.set_enclosure("lion");
-    lion.afisare_informatii();
-    lion_enclosure.afisare_informatii();
-    list.afisare_informatii();
-    //generam 100 de vizitatori
-    /**
-    vector <guest> guests[100];
-    for (int i=0;i<99;i++)
-    {
-        guests[i]=rand()%4;
-    }**/
+
+    //lion.afisare_informatii();
+    //lion_enclosure.afisare_informatii();
+    //list.afisare_informatii();
+    //lion2.afisare_informatii();
+    lion3.afisare_informatii();
+
+
+
+    //generate_guests();
 }
 
