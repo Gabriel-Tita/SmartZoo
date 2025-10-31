@@ -34,7 +34,7 @@ public:
         return number;
     }
 
-    string get_enclosure_species(const int num) const {
+    const string& get_enclosure_species(const int num) const {
         return name[num];
     }
 
@@ -164,7 +164,7 @@ public:
         cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n\n";
     }
 
-    string get_species () const{
+    const string& get_species () const {
         return species_name;
     }
 
