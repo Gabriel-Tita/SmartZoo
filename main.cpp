@@ -60,14 +60,15 @@ class enclosure
 {
 private:
     string species="Unknown";
-    int number_of_animals=-1, number_of_enclosures=-1;
+    int number_of_animals=-1, number_of_enclosures=-1, current_animal_number=-1;
 public:
     enclosure()=default;
 
-    enclosure(const string& species, const int number_of_animals, const int number_of_enclosures) {
+    enclosure(const string& species, const int number_of_animals, const int number_of_enclosures, const int current_animal_number) {
         this->species=species;
         this->number_of_animals=number_of_animals;
         this->number_of_enclosures=number_of_enclosures;
+        this->current_animal_number=current_animal_number;
     }
 
     ~enclosure()=default;
@@ -76,14 +77,16 @@ public:
         cout<<"This is everything about the enclosures of the ";
         cout<<species<<"!\n";
         cout<<"The number of animals that can coexist in one single enclosure: "<<number_of_animals<<"\n";
-        cout<<"The number of enclosures for this species that we currently have: "<<number_of_enclosures<<"\n\n";
+        cout<<"The number of enclosures for this species that we currently have: "<<number_of_enclosures<<"\n";
+        cout<<"The number of animals that are right now in the enclosure: "<<current_animal_number<<"\n\n";
     }
 
     friend ostream& operator<<(ostream& os, const enclosure& enclosure) {
         os<<"This is everything about the enclosures of the ";
         os<<enclosure.species<<"!\n";
         os<<"The number of animals that can coexist in one single enclosure: "<<enclosure.number_of_animals<<"\n";
-        os<<"The number of enclosures for this species that we currently have: "<<enclosure.number_of_enclosures<<"\n\n";
+        os<<"The number of enclosures for this species that we currently have: "<<enclosure.number_of_enclosures<<"\n";
+        os<<"The number of animals that are right now in the enclosure: "<<enclosure.current_animal_number<<"\n\n";
         return os;
     }
 };
@@ -161,8 +164,37 @@ public:
         cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n\n";
     }
 
+    string get_species () const{
+        return species_name;
+    }
 
+};
 
+class zoo {
+private:
+    int number=-1;
+    vector<animal> animals;
+public:
+
+    zoo()=default;
+
+    explicit zoo(const int number) {
+        this->number=number;
+    }
+
+    friend ostream& operator<<(ostream& os, const zoo& zoo) {
+        os<<"This is a list with all the creatures that we have!\n";
+        for(int i=0;i<zoo.number;i++) {
+            os<<"Creature number "<<i+1<<" : "<<zoo.animals[i].get_species()<<"\n";
+        }
+        os<<"\n";
+        return os;
+    }
+
+    void add(const animal& animal) {
+        animals.push_back(animal);
+        number++;
+    }
 };
 
 class Guest
@@ -210,10 +242,11 @@ int main()
 {
     list_of_enclosures list(0);
     Guest guest(0);
+    zoo creatures(0);
 
-    // Am  adaugat 2 specii: leu si tigru
     animal lion("Lion", "great", 2, 3, 1, 1, 84, 1);
-    enclosure lion_enclosure("Lion", 4, 1);
+    creatures.add(lion);
+    enclosure lion_enclosure("Lion", 4, 1, 2);
     list.set_enclosure("Lion");
 
     // pentru a pune in valoare functiile de afisare
@@ -221,8 +254,9 @@ int main()
     lion_enclosure.print_info();
     list.print_info();
 
-    enclosure tiger_enclosure("Tiger", 2, 1);
     animal tiger("Tiger", "great", 1, 3, 1, 0, 87, 1);
+    creatures.add(tiger);
+    enclosure tiger_enclosure("Tiger", 2, 1, 1);
     list.set_enclosure("Tiger");
 
     animal lion2=lion;
@@ -241,6 +275,10 @@ int main()
     //punem in valoare operatorul << pentru clasa guest
     guest.generate_guests(list);
     cout<<guest;
+
+    cout<<creatures;
+
+    //interogare cu privire la ce animal dintre cele pe care le avem sa mai aducem la zoo
 }
 
 
