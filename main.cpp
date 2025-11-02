@@ -200,6 +200,7 @@ public:
                 return animals[i].get_more_info();
             }
         }
+        return 0;
     }
 
 };
