@@ -10,7 +10,7 @@ private:
 public:
     money()=default;
 
-    money(const int coins) {
+    explicit money(const int coins) {
         this->coins=coins;
     }
 
