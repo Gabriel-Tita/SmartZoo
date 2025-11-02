@@ -269,7 +269,7 @@ class Guest
 {
     //clasa care retine informatii cu privire la vizitatori
 private:
-    int parking_lot;
+    int parking_lot=-1;
     vector <string> position;
     vector <bool> car;
     int number=-1;
@@ -417,6 +417,9 @@ int main()
     guest.calculate_rating(creatures);
 
     guest.calculate_number_of_empty_spaces();
+
+    //de facut o functie care mai aduce 100 de invitati, toti cu masina. ii primim pe primii, restul sunt
+    //platesc o suma de bani, si mai definesc un camp parcare cu plata.
 }
 
 
