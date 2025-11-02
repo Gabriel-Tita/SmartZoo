@@ -4,6 +4,32 @@
 #include <string.h>
 using namespace std;
 
+class money{
+private:
+    int coins=-1;
+public:
+    money()=default;
+
+    money(const int coins) {
+        this->coins=coins;
+    }
+
+    int get_coins() const {
+        return coins;
+    }
+
+    void set_wallet(const int amount_to_be_added) {
+        coins+=amount_to_be_added;
+    }
+
+    ~money()=default;
+
+    friend ostream& operator<<(ostream& os, const money money) {
+        os<<"The budget of the zoo is "<<money.coins<<"!\n\n";
+        return os;
+    }
+};
+
 class enclosure
 {
     // clasa care retine informatii despre tarcurile fiecarei specii
@@ -166,6 +192,8 @@ public:
         this->number=number;
     }
 
+    ~zoo()=default;
+
     friend ostream& operator<<(ostream& os, const zoo& zoo) {
         os<<"This is a list with all the creatures that we have!\n";
         for(int i=0;i<zoo.number;i++) {
@@ -269,7 +297,9 @@ class Guest
 {
     //clasa care retine informatii cu privire la vizitatori
 private:
-    int parking_lot=-1;
+    int amount_per_parking_space=-1;
+    int free_parking_spaces=-1;
+    int paying_parking_spaces=-1;
     vector <string> position;
     vector <bool> car;
     int number=-1;
@@ -289,8 +319,10 @@ private:
 public:
     Guest()=default;
 
-    explicit Guest(const int parking_lot, const int number) {
-        this->parking_lot=parking_lot;
+    explicit Guest(const int amount_per_parking_space, const int free_parking_spaces, const int paying_parking_spaces, const int number) {
+        this->amount_per_parking_space=amount_per_parking_space;
+        this->free_parking_spaces=free_parking_spaces;
+        this->paying_parking_spaces=paying_parking_spaces;
         this->number=number;
     }
 
@@ -352,22 +384,49 @@ public:
         cout<<"The creature that is the highest rated in the zoo is the "<<winner_name<<" "<<"with a rating of "<<maximum_rating<<"!\n\n";
     }
 
-    void calculate_number_of_empty_spaces() {
+    void calculate_number_of_free_empty_spaces() {
         int occupied_spaces=0;
         for (int i=0;i<number;i++) {
             if (car[i]==1) {
                 occupied_spaces++;
             }
         }
-        cout<<"Number of empty spaces is "<<parking_lot-occupied_spaces<<"\n\n";
+        if (free_parking_spaces-occupied_spaces>0) {
+            cout<<"Number of free empty spaces is "<<free_parking_spaces-occupied_spaces<<"\n\n";
+        }
+        else
+            cout<<"The are no free empty spaces!\n\n";
+    }
+
+    int return_number_of_free_empty_spaces() {
+        int occupied_spaces=0;
+        for (int i=0;i<number;i++) {
+            if (car[i]==1) {
+                occupied_spaces++;
+            }
+        }
+        return free_parking_spaces-occupied_spaces;
+    }
+
+    void guest_incoming(money& wallet, const int people, const list_of_enclosures& list) {
+        int number_of_enclosures=list.get_number_of_enclosures();
+        for (int i=0;i<people;i++) {
+            if (return_number_of_free_empty_spaces()<=0) {
+                wallet.set_wallet(amount_per_parking_space);
+            }
+            set_position(list, i%number_of_enclosures);
+            set_parking_lot(1);
+            set_number();
+        }
     }
 };
 
 int main()
 {
     list_of_enclosures list(0);
-    Guest guest(100, 0);
+    Guest guest(10, 100, 100, 0);
     zoo creatures(0);
+    money wallet(0);
 
     animal lion("Lion", "great", 2, 3, 1, 1, 84, 1);
     creatures.add(lion);
@@ -416,10 +475,14 @@ int main()
 
     guest.calculate_rating(creatures);
 
-    guest.calculate_number_of_empty_spaces();
+    guest.calculate_number_of_free_empty_spaces();
 
     //de facut o functie care mai aduce 100 de invitati, toti cu masina. ii primim pe primii, restul sunt
     //platesc o suma de bani, si mai definesc un camp parcare cu plata.
+
+    guest.guest_incoming(wallet, 100, list);
+    cout<<wallet;
+    guest.calculate_number_of_free_empty_spaces();
 }
 
 
