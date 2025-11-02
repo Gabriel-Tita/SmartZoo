@@ -144,6 +144,10 @@ public:
         }
     }
 
+    int get_more_info() {
+        return number*attractiveness;
+    }
+
 };
 
 class zoo {
@@ -186,6 +190,14 @@ public:
             if (name==animals[i].get_species()) {
                 animals[i].update_gender_of_creatures(gender);
                 return;
+            }
+        }
+    }
+
+    int get_info(const string& name) {
+        for (int i=0;i<number;i++) {
+            if (name==animals[i].get_species()) {
+                return animals[i].get_more_info();
             }
         }
     }
@@ -290,6 +302,38 @@ public:
         os<<"\n";
         return os;
     }
+
+    void calculate_rating(zoo& creatures) {
+        int maximum_rating=0;
+        vector<string> verified_creatures;
+        string winner_name;
+        for (int i=0;i<number;i++) {
+            int already_verified=0;
+            for (int j=0;j<verified_creatures.size();j++) {
+                if (verified_creatures[j]==position[i]) {
+                    already_verified=1;
+                    break;
+                }
+            }
+            if (already_verified==0) {
+                //am gasit un animal pentru care nu am calculat ratingul
+                verified_creatures.push_back(position[i]);
+                int number_of_guests_visiting_the_animal=0;
+                for (int j=0;j<number;j++) {
+                    if (position[i]==position[j]) {
+                        number_of_guests_visiting_the_animal++;
+                    }
+                }
+                int current_rating=creatures.get_info(position[i]);
+                current_rating=current_rating*number_of_guests_visiting_the_animal;
+                if (current_rating>maximum_rating) {
+                    maximum_rating=current_rating;
+                    winner_name=position[i];
+                }
+            }
+        }
+        cout<<"The creature that is the highest rated in the zoo is the "<<winner_name<<" "<<"with a rating of "<<maximum_rating<<"!\n\n";
+    }
 };
 
 int main()
@@ -338,7 +382,7 @@ int main()
     cout<<list;
     creatures.print_info();
 
-
+    guest.calculate_rating(creatures);
 
 }
 
