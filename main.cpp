@@ -77,6 +77,7 @@ public:
         this->enclosure_number=enclosure_number;
     }
 
+    //contructor de copiere
     animal(const animal& animal) {
         this->species_name=animal.species_name;
         this->health=animal.health;
@@ -88,6 +89,7 @@ public:
         this->enclosure_number=animal.enclosure_number;
     }
 
+    //operator egal (de atribuire)
     animal& operator=(const animal& animal) {
         this->species_name=animal.species_name;
         this->health=animal.health;
@@ -267,7 +269,9 @@ class Guest
 {
     //clasa care retine informatii cu privire la vizitatori
 private:
+    int parking_lot;
     vector <string> position;
+    vector <bool> car;
     int number=-1;
 
     void set_number() {
@@ -278,10 +282,15 @@ private:
         position.push_back(list.get_enclosure_species(num));
     }
 
+    void set_parking_lot(const int num) {
+        car.push_back((bool)num);
+    }
+
 public:
     Guest()=default;
 
-    explicit Guest(const int number) {
+    explicit Guest(const int parking_lot, const int number) {
+        this->parking_lot=parking_lot;
         this->number=number;
     }
 
@@ -291,6 +300,7 @@ public:
         int number_of_enclosures=list.get_number_of_enclosures();
         for (int i=0;i<100;i++) {
             set_position(list, i%number_of_enclosures);
+            set_parking_lot(i%2);
             set_number();
         }
     }
@@ -298,7 +308,13 @@ public:
     friend ostream& operator<<(ostream& os, const Guest& guest) {
         os<<"This is the list with the location of each guest!"<<"\n";
         for (int i=0;i<guest.number;i++) {
-            os<<"Guest number "<<i+1<<" is at the "<<guest.position[i]<<" enclosure"<<"\n";
+            os<<"Guest number "<<i+1<<" is at the "<<guest.position[i]<<" enclosure";
+            if (guest.car[i]==0) {
+                os<<" and it didn't come with a car"<<"\n";
+            }
+            else {
+                os<<" and it came with a car"<<"\n";
+            }
         }
         os<<"\n";
         return os;
@@ -335,12 +351,22 @@ public:
         }
         cout<<"The creature that is the highest rated in the zoo is the "<<winner_name<<" "<<"with a rating of "<<maximum_rating<<"!\n\n";
     }
+
+    void calculate_number_of_empty_spaces() {
+        int occupied_spaces=0;
+        for (int i=0;i<number;i++) {
+            if (car[i]==1) {
+                occupied_spaces++;
+            }
+        }
+        cout<<"Number of empty spaces is "<<parking_lot-occupied_spaces<<"\n\n";
+    }
 };
 
 int main()
 {
     list_of_enclosures list(0);
-    Guest guest(0);
+    Guest guest(100, 0);
     zoo creatures(0);
 
     animal lion("Lion", "great", 2, 3, 1, 1, 84, 1);
@@ -371,6 +397,11 @@ int main()
     cout<<tiger_enclosure;
     cout<<list;
 
+    animal zebra("Zebra", "good", 6, 2, 2, 4, 68, 1);
+    creatures.add(zebra);
+    enclosure zebra_enclosure("Zebra", 10, 1, 6);
+    list.add(zebra_enclosure);
+
     //punem in valoare operatorul << pentru clasa guest
     guest.generate_guests(list);
     cout<<guest;
@@ -385,6 +416,7 @@ int main()
 
     guest.calculate_rating(creatures);
 
+    guest.calculate_number_of_empty_spaces();
 }
 
 
