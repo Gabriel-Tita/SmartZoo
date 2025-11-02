@@ -215,7 +215,7 @@ public:
         return enc[num].get_species();
     }
 
-    void add(const enclosure Enclosure) {
+    void add(const enclosure& Enclosure) {
         enc.push_back(Enclosure);
         number++;
     }
@@ -304,9 +304,9 @@ int main()
     list.add(lion_enclosure);
 
     // pentru a pune in valoare functiile de afisare
-    //lion.print_info();
-    //lion_enclosure.print_info();
-    //list.print_info();
+    lion.print_info();
+    lion_enclosure.print_info();
+    list.print_info();
 
     animal tiger("Tiger", "great", 1, 3, 1, 0, 87, 1);
     creatures.add(tiger);
@@ -318,19 +318,19 @@ int main()
     lion3=lion;
 
     //pentru a pune in valoare constructorul de copiere si operatorul de copiere
-    //lion2.print_info();
-    //lion3.print_info();
+    lion2.print_info();
+    lion3.print_info();
 
     //pentru a pune in valoare operatorul << pentru toate clasele
-    //cout<<tiger;
-    //cout<<tiger_enclosure;
-    //cout<<list;
+    cout<<tiger;
+    cout<<tiger_enclosure;
+    cout<<list;
 
     //punem in valoare operatorul << pentru clasa guest
     guest.generate_guests(list);
     cout<<guest;
 
-    //cout<<creatures;
+    cout<<creatures;
 
     //interogare cu privire la ce animal dintre cele pe care le avem sa mai aducem la zoo si afisare
     //a modificarilor corespunzatoare(o functie care apeleaza 6 sau 7 functii).
