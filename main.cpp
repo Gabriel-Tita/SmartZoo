@@ -309,7 +309,7 @@ public:
         string winner_name;
         for (int i=0;i<number;i++) {
             int already_verified=0;
-            for (int j=0;j<verified_creatures.size();j++) {
+            for (int j=0;j<(int)verified_creatures.size();j++) {
                 if (verified_creatures[j]==position[i]) {
                     already_verified=1;
                     break;
