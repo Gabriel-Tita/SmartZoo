@@ -298,7 +298,6 @@ int main()
     Guest guest(0);
     zoo creatures(0);
 
-
     animal lion("Lion", "great", 2, 3, 1, 1, 84, 1);
     creatures.add(lion);
     enclosure lion_enclosure("Lion", 4, 1, 2);
