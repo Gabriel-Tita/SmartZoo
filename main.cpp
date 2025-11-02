@@ -14,10 +14,6 @@ public:
         this->coins=coins;
     }
 
-    int get_coins() const {
-        return coins;
-    }
-
     void set_wallet(const int amount_to_be_added) {
         coins+=amount_to_be_added;
     }
