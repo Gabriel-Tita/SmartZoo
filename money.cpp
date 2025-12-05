@@ -1,3 +1,4 @@
+// #pragma once
 #include "money.hpp"
 
 money::money(const int coins) {

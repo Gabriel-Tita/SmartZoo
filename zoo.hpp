@@ -1,8 +1,9 @@
-#ifndef OOP_ZOO_HPP
-#define OOP_ZOO_HPP
+#pragma once
+// #ifndef OOP_ZOO_HPP
+// #define OOP_ZOO_HPP
 #include <vector>
 #include <iostream>
-#include "animal.cpp"
+#include "animal.hpp"
 using namespace std;
 
 class zoo {
@@ -30,4 +31,4 @@ public:
     int get_info(const string& name);
 
 };
-#endif //OOP_ZOO_HPP
+// #endif //OOP_ZOO_HPP

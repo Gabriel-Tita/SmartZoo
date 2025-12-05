@@ -1,8 +1,9 @@
-#ifndef OOP_LIST_OF_ENCLOSURES_HPP
-#define OOP_LIST_OF_ENCLOSURES_HPP
+#pragma once
+// #ifndef OOP_LIST_OF_ENCLOSURES_HPP
+// #define OOP_LIST_OF_ENCLOSURES_HPP
 #include <iostream>
-#include "enclosure.cpp"
-#include "zoo.cpp"
+#include "enclosure.hpp"
+#include "zoo.hpp"
 using namespace std;
 
 class list_of_enclosures {
@@ -14,7 +15,7 @@ private:
 public:
     list_of_enclosures()=default;
 
-    explicit list_of_enclosures(const int number);
+    list_of_enclosures(const int number);
 
     ~list_of_enclosures()=default;
 
@@ -22,7 +23,7 @@ public:
 
     const string& get_enclosure_species(const int num) const;
 
-    void add(const enclosure& Enclosure);
+void add(const enclosure& Enclosure);
 
     void query_add_animal(zoo& species, const string& name, const string& gender);
 
@@ -30,4 +31,4 @@ public:
 
     friend ostream& operator<<(ostream& os, const list_of_enclosures& list_of_enclosures);
 };
-#endif //OOP_LIST_OF_ENCLOSURES_HPP
+// #endif //OOP_LIST_OF_ENCLOSURES_HPP

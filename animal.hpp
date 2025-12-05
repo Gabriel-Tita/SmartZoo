@@ -1,5 +1,6 @@
-#ifndef OOP_ANIMAL_HPP
-#define OOP_ANIMAL_HPP
+#pragma once
+// #ifndef OOP_ANIMAL_HPP
+// #define OOP_ANIMAL_HPP
 #include <string>
 #include <iostream>
 using namespace std;
@@ -32,4 +33,5 @@ public:
 
     int get_more_info();
 };
-#endif //OOP_ANIMAL_HPP
+
+// #endif //OOP_ANIMAL_HPP

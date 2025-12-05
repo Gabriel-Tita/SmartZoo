@@ -1,3 +1,4 @@
+// #pragma once
 #include "animal.hpp"
 
 animal::animal(const string& species_name, const string& health, const int number, const int viewing_platform, const int male_number, const int female_number, const int attractiveness, const int enclosure_number)

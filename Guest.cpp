@@ -1,3 +1,4 @@
+// #pragma once
 #include "Guest.hpp"
 //clasa care retine informatii cu privire la vizitatori
 void Guest::set_number() {

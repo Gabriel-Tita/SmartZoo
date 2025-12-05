@@ -1,5 +1,6 @@
-#ifndef OOP_MONEY_HPP
-#define OOP_MONEY_HPP
+#pragma once
+// #ifndef OOP_MONEY_HPP
+// #define OOP_MONEY_HPP
 #include <iostream>
 using namespace std;
 
@@ -17,4 +18,4 @@ public:
 
     friend ostream& operator<<(ostream& os, const money& money);
 };
-#endif //OOP_MONEY_HPP
+// #endif //OOP_MONEY_HPP

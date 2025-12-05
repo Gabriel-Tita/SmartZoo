@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Guest.cpp"
+#include "Guest.hpp"
 using namespace std;
 
 int main()

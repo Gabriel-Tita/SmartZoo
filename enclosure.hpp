@@ -1,5 +1,6 @@
-#ifndef OOP_ENCLOSURE_HPP
-#define OOP_ENCLOSURE_HPP
+#pragma once
+// #ifndef OOP_ENCLOSURE_HPP
+// #define OOP_ENCLOSURE_HPP
 #include <string>
 #include <iostream>
 using namespace std;
@@ -28,4 +29,4 @@ public:
 
     void add_one_animal();
 };
-#endif //OOP_ENCLOSURE_HPP
+//#endif //OOP_ENCLOSURE_HPP

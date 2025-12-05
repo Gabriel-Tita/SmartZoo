@@ -1,7 +1,8 @@
-#ifndef OOP_GUEST_HPP
-#define OOP_GUEST_HPP
-#include "list_of_enclosures.cpp"
-#include "money.cpp"
+#pragma once
+// #ifndef OOP_GUEST_HPP
+// #define OOP_GUEST_HPP
+#include "list_of_enclosures.hpp"
+#include "money.hpp"
 
 class Guest {
     //clasa care retine informatii cu privire la vizitatori
@@ -22,7 +23,7 @@ private:
 public:
     Guest()=default;
 
-    explicit Guest(const int amount_per_parking_space, const int free_parking_spaces, const int paying_parking_spaces, const int number);
+    Guest(const int amount_per_parking_space, const int free_parking_spaces, const int paying_parking_spaces, const int number);
 
     ~Guest()=default;
 
@@ -38,4 +39,4 @@ public:
 
     void guest_incoming(money& wallet, const int people, const list_of_enclosures& list);
 };
-#endif //OOP_GUEST_HPP
+// #endif //OOP_GUEST_HPP
