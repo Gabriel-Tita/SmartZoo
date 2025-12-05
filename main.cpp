@@ -125,7 +125,7 @@ public:
     }
 
     ~animal() {
-        cout<<"This is the end of the program!\n";
+        cout<<"\n";
     }
 
     friend ostream& operator<<(ostream& os, const animal& animal) {
@@ -159,6 +159,7 @@ public:
     }
 
     void update_gender_of_creatures(const string& gender){
+        // enum
         number++;
         if (gender=="Male") {
             male_number++;
@@ -463,8 +464,6 @@ int main()
 
     cout<<creatures;
 
-    //interogare cu privire la ce animal dintre cele pe care le avem sa mai aducem la zoo si afisare
-    //a modificarilor corespunzatoare(o functie care apeleaza 6 sau 7 functii).
     list.query_add_animal(creatures, "Lion", "Male");
     cout<<list;
     creatures.print_info();
@@ -473,13 +472,7 @@ int main()
 
     guest.calculate_number_of_free_empty_spaces();
 
-    //de facut o functie care mai aduce 100 de invitati, toti cu masina. ii primim pe primii, restul sunt
-    //platesc o suma de bani, si mai definesc un camp parcare cu plata.
-
     guest.guest_incoming(wallet, 100, list);
     cout<<wallet;
     guest.calculate_number_of_free_empty_spaces();
 }
-
-
-
