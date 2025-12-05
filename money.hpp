@@ -15,6 +15,6 @@ public:
 
     ~money()=default;
 
-    friend ostream& operator<<(ostream& os, const money money);
+    friend ostream& operator<<(ostream& os, const money& money);
 };
 #endif //OOP_MONEY_HPP
