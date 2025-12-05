@@ -62,5 +62,4 @@ int main()
     cout<<wallet;
     guest.calculate_number_of_free_empty_spaces();
     return 0;
-
 }
