@@ -1,0 +1,33 @@
+#ifndef OOP_LIST_OF_ENCLOSURES_HPP
+#define OOP_LIST_OF_ENCLOSURES_HPP
+#include <iostream>
+#include "enclosure.cpp"
+#include "zoo.cpp"
+using namespace std;
+
+class list_of_enclosures {
+private:
+    // clasa care retine cate tarcuri avem pentru fiecare specie
+    int number=-1;
+    vector<enclosure> enc;
+
+public:
+    list_of_enclosures()=default;
+
+    explicit list_of_enclosures(const int number);
+
+    ~list_of_enclosures()=default;
+
+    int get_number_of_enclosures() const;
+
+    const string& get_enclosure_species(const int num) const;
+
+    void add(const enclosure& Enclosure);
+
+    void query_add_animal(zoo& species, const string& name, const string& gender);
+
+    void print_info();
+
+    friend ostream& operator<<(ostream& os, const list_of_enclosures& list_of_enclosures);
+};
+#endif //OOP_LIST_OF_ENCLOSURES_HPP

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION   3.26)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing executable name in this file
 # for now, the project name is used as the executable name
@@ -50,6 +50,18 @@ include(cmake/CopyHelper.cmake)
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${MAIN_EXECUTABLE_NAME}
     main.cpp
+        money.cpp
+        money.hpp
+        enclosure.cpp
+        enclosure.hpp
+        animal.cpp
+        animal.hpp
+        zoo.cpp
+        zoo.hpp
+        list_of_enclosures.cpp
+        list_of_enclosures.hpp
+        Guest.cpp
+        Guest.hpp
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
