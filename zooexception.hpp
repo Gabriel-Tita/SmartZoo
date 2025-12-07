@@ -10,18 +10,18 @@ public:
 
 class invalid_input_exception :public zooexception {
 public:
-    invalid_input_exception(const string& input_value)
+    explicit invalid_input_exception(const string& input_value)
         : zooexception("Eroare la input: Valoarea '"+ input_value +"' nu este permisa!") {}
 };
 
 class animal_not_found_exception :public zooexception {
 public:
-    animal_not_found_exception(const string& species_name)
+    explicit animal_not_found_exception(const string& species_name)
         : zooexception("Eroare de cautare: Specia "+ species_name+" nu a fost gasita in zoo!") {}
 };
 
 class cloning_failure_exception :public zooexception {
 public:
-    cloning_failure_exception(const string& species_name)
+    explicit cloning_failure_exception(const string& species_name)
         :zooexception("Eroare la clonare: Esec la alocarea memoriei pentru specia: " + species_name + ".") {}
 };

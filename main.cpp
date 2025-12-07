@@ -81,7 +81,7 @@ int main() {
     catch (const cloning_failure_exception& e) {
         cerr<<"\n[Cloning_failure_exception]: Detaliu: "<<e.what()<<"\n";
     }
-    catch (const exception& e) {
+    catch (const zooexception& e) {
         cerr<<"\n[EROARE GENERICA]: o exceptie necunoscuta a fost prinsa. Detaliu: "<<e.what()<<"\n";
     }
     catch (const std::exception& e) {
