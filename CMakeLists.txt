@@ -67,6 +67,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         snake.hpp
         eagle.cpp
         eagle.hpp
+        zooexception.hpp
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

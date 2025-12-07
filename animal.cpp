@@ -12,6 +12,7 @@ animal::animal(const string& species_name, const string& health, const int numbe
     this->female_number=female_number;
     this->attractiveness=attractiveness;
     this->enclosure_number=enclosure_number;
+
 }
 
 //contructor de copiere
@@ -38,7 +39,6 @@ animal& animal::operator=(const animal& animal) {
     this->enclosure_number=animal.enclosure_number;
     return *this;
 }
-
 
 void animal::print_details(ostream& os) const {
     os<<"Species: "<<species_name<<"\n";

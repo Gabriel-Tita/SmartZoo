@@ -2,13 +2,19 @@
 #include "lion.hpp"
 #include "snake.hpp"
 #include "eagle.hpp"
+#include "zooexception.hpp"
+
 zoo::zoo(const int number) {
     this->number=number;
     this->number=0;
 }
 
 void zoo::add(const animal& a) {
-    animals.push_back(unique_ptr<animal>(a.clone()));
+    animal* new_animal_ptr=a.clone();
+    if (new_animal_ptr==nullptr) {
+        throw cloning_failure_exception(a.get_species());
+    }
+    animals.push_back(unique_ptr<animal>(new_animal_ptr));
     number++;
 }
 
@@ -29,12 +35,16 @@ void zoo::print_info() {
 }
 
 void zoo::add_individual(const string &name, const string &gender) {
+    if (gender != "Male" && gender != "Female") {
+        throw invalid_input_exception(gender);
+    }
     for (int i=0;i<number;i++) {
         if (name==animals[i]->get_species()) {
             animals[i]->update_gender_of_creatures(gender);
             return;
         }
     }
+    throw animal_not_found_exception(name);
 }
 
 int zoo::get_info(const string &name) {

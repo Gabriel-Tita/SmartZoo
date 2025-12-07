@@ -7,13 +7,13 @@
 #include "lion.hpp"
 #include "Reptile.hpp"
 #include "snake.hpp"
+#include "zooexception.hpp"
 using namespace std;
 
 int main() {
     list_of_enclosures list(0);
     money wallet(0);
     Guest guest(10, 100, 100, 0);
-
 
     zoo my_smart_zoo;
     lion lion1("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
@@ -67,5 +67,25 @@ int main() {
 
     my_smart_zoo.apply_special_treatment();
 
+    ///exceptii teste
+    try {
+        //my_smart_zoo.add_individual("tiger", "red");
+        //my_smart_zoo.add_individual("tiger", "Male");
+    }
+    catch (const invalid_input_exception& e) {
+        cerr<<"\n[Prins invalid_input_exception]: Detaliu: "<<e.what()<<"\n";
+    }
+    catch (const animal_not_found_exception& e) {
+        cerr<<"\n[Animal_not_found_exception]: Detaliu: "<<e.what()<<"\n";
+    }
+    catch (const cloning_failure_exception& e) {
+        cerr<<"\n[Cloning_failure_exception]: Detaliu: "<<e.what()<<"\n";
+    }
+    catch (const exception& e) {
+        cerr<<"\n[EROARE GENERICA]: o exceptie necunoscuta a fost prinsa. Detaliu: "<<e.what()<<"\n";
+    }
+    catch (const std::exception& e) {
+        std::cerr<<"[EROARE CRITICA STANDARD C++]: Programul a intampinat o eroare standard. Detaliu:"<<e.what()<<"\n";
+    }
     return 0;
 }
