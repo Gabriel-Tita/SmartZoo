@@ -20,4 +20,6 @@ public:
     const string& get_mane_colour()const;
 
     void interesting_facts() const;
+
+    void swapp(lion& other);
 };

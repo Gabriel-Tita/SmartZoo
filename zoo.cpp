@@ -57,7 +57,7 @@ int zoo::get_info(const string &name) {
 
 void zoo::daily_feed_and_sound() const {
     cout<<"----Daily zoo event: feed and sound check----\n";
-    for (animal* a:animals) {
+    for (const animal* a:animals) {
         a->print_info();
         a->make_sound();
         std::cout<<"-----------------------------\n";

@@ -39,3 +39,7 @@ void lion::interesting_facts() const{
         cout<<"This creature has fur and a mane of colour "<<this->get_mane_colour()<<"!\n";
     }
 }
+
+void lion::swapp(lion& other) {
+
+}
