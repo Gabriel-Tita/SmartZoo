@@ -10,7 +10,7 @@ public:
     lion()=default;
     lion(const string& species_name, const string& health, const int number, const int viewing_platform, const int male_number, const int female_number, const int attractiveness, const int enclosure_number, const bool has_fur, const string& mane_colour);
     lion(const lion& other);
-    lion& operator=(const lion& other);
+    lion& operator=(lion other);
     ~lion()override=default;
 
     void print_details(ostream& os)const override;

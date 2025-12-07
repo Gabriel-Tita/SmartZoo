@@ -32,3 +32,15 @@ void mammal::print_details(ostream& os) const{
 bool mammal::get_has_fur()const {
     return has_fur;
 }
+
+void mammal::swapp(mammal& other) {
+    swap(has_fur, other.has_fur);
+    swap(species_name, other.species_name);
+    swap(health, other.health);
+    swap(number, other.number);
+    swap(viewing_platform, other.viewing_platform);
+    swap(male_number, other.male_number);
+    swap(female_number, other.female_number);
+    swap(attractiveness, other.attractiveness);
+    swap(enclosure_number, other.enclosure_number);
+}

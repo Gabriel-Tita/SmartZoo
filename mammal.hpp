@@ -19,4 +19,6 @@ public:
     void print_details(ostream& os)const override;
 
     bool get_has_fur()const;
+
+    void swapp(mammal& other);
 };
