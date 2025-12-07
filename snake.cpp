@@ -33,6 +33,12 @@ bool snake::get_is_poisonous() const {
     return is_poisonous;
 }
 
+void snake::interesting_facts() const{
+    if (this->is_cold_blooded()==1&&this->get_is_poisonous()==1) {
+        cout<<"This creature is cold blooded and poisonous!\n";
+    }
+}
+
 
 
 

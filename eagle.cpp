@@ -20,7 +20,7 @@ animal* eagle::clone() const {
 }
 
 void eagle::print_details(ostream& os) const {
-    animal::print_details(os);
+    birds::print_details(os);
     os<<"This eagle has a wingspan of "<<wingspan<<" meters!"<<"\n\n";
 }
 
@@ -32,5 +32,10 @@ double eagle::get_wingspan() const {
     return wingspan;
 }
 
+void eagle::interesting_facts() const {
+    if (this->get_can_fly()==1) {
+        cout<<"This eagle can fly and has a wingspan of "<<this->get_wingspan()<<"!\n";
+    }
+}
 
 

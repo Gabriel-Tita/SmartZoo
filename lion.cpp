@@ -20,7 +20,7 @@ animal* lion::clone()const {
 }
 
 void lion::print_details(ostream& os)const {
-    animal::print_details(os);
+    mammal::print_details(os);
     os<<"Mane colour: "<<mane_colour<<"\n\n";
 }
 
@@ -31,4 +31,10 @@ void lion::print_info(){
 
 const string& lion::get_mane_colour() const {
     return mane_colour;
+}
+
+void lion::interesting_facts() const{
+    if (this->get_has_fur()==1) {
+        cout<<"This creature has fur and a mane of colour "<<this->get_mane_colour()<<"!\n";
+    }
 }

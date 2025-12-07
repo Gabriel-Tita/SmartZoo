@@ -1,6 +1,4 @@
 #include "zoo.hpp"
-//clasa care retine informatii generale despre fiecare specie din tarc(utila pentru ca putem cauta
-    //mult mai usor informatii despre fiecare creatura utilizand NUMELE ei)
 zoo::zoo(const int number) {
     this->number=number;
     this->number=0;

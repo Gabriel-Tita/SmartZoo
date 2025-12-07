@@ -11,7 +11,7 @@ reptile& reptile::operator=(const reptile& other) {
     return *this;
 }
 
-void reptile:: print_info() {
+void reptile::print_info() {
     animal::print_info();
     cout<<"This reptile is "<<(cold_blooded?"":"not ")<<"cold blooded."<<"\n";
 }

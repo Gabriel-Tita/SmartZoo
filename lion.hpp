@@ -17,4 +17,6 @@ public:
     animal* clone()const override;
     void print_info() override;
     const string& get_mane_colour()const;
+
+    void interesting_facts() const;
 };

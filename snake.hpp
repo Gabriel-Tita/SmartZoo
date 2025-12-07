@@ -16,4 +16,6 @@ public:
     animal* clone() const override;
     void print_info() override;
     bool get_is_poisonous() const;
+
+    void interesting_facts() const;
 };

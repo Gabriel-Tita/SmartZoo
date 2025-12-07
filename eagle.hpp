@@ -14,6 +14,6 @@ public:
     animal *clone()const override;
     void print_info() override;
     double get_wingspan()const;
-
+    void interesting_facts() const;
     void print_details(ostream& os)const override;
 };

@@ -17,7 +17,7 @@ int main() {
 
     zoo my_smart_zoo;
     lion lion1("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
-    snake snake1("Python", "Fair", 1, 0, 0, 1, 60, 1, false, false);
+    snake snake1("Python", "Fair", 1, 0, 0, 1, 60, 1, true, true);
     eagle eagle1("Golden Eagle", "Excellent", 3, 2, 2, 1, 95, 1, true, 2.0);
     my_smart_zoo.add(lion1);
     my_smart_zoo.add(snake1);
@@ -60,7 +60,10 @@ int main() {
     cout<<snake1;
     cout<<lion1;
 
-
+    cout<<"----Interesting Facts----\n";
+    lion1.interesting_facts();
+    snake1.interesting_facts();
+    eagle1.interesting_facts();
 
     return 0;
 }
