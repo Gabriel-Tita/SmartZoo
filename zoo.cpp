@@ -62,15 +62,15 @@ void zoo::daily_feed_and_sound() const {
 void zoo::apply_special_treatment() {
     cout<<"----Applying special treatment----\n";
     for (const auto& animal_ptr:animals) {
-        lion* lion_ptr=dynamic_cast<lion*>(animal_ptr.get());
+        const lion* lion_ptr=dynamic_cast<lion*>(animal_ptr.get());
         if (lion_ptr) {
             cout<<"Lion: Apply speical treatment for the mane colour: "<<lion_ptr->get_mane_colour()<<"\n";
         }
-        eagle* eagle_ptr=dynamic_cast<eagle*>(animal_ptr.get());
+        const eagle* eagle_ptr=dynamic_cast<eagle*>(animal_ptr.get());
         if (eagle_ptr) {
             cout<<"Eagle: Apply special treatment for its feathers\n";
         }
-        snake* snake_ptr=dynamic_cast<snake*>(animal_ptr.get());
+        const snake* snake_ptr=dynamic_cast<snake*>(animal_ptr.get());
         if (snake_ptr) {
             cout<<"Snake: Apply special treatment for its fangs\n";
         }
