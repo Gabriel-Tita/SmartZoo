@@ -1,5 +1,5 @@
 #pragma once
-#include "reptile.hpp"
+#include "Reptile.hpp"
 class snake : public reptile {
 private:
     bool is_poisonous=0;

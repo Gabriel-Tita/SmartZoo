@@ -53,9 +53,9 @@ int zoo::get_info(const string &name) {
     return 0;
 }
 
-int zoo::get_curent_number() const{
-    return number;
-}
+// int zoo::get_curent_number() const{
+//     return number;
+// }
 
 void zoo::daily_feed_and_sound() const {
     cout<<"----Daily zoo event: feed and sound check----\n";

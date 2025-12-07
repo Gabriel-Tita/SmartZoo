@@ -59,5 +59,8 @@ int main() {
     cout<<eagle1;
     cout<<snake1;
     cout<<lion1;
+
+
+
     return 0;
 }

@@ -28,7 +28,7 @@ public:
 
     int get_info(const string& name);
 
-    int get_curent_number() const;
+    // int get_curent_number() const;
 
     void daily_feed_and_sound () const;
 
