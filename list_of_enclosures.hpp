@@ -13,7 +13,7 @@ private:
 public:
     list_of_enclosures()=default;
 
-    list_of_enclosures(const int number);
+    explicit list_of_enclosures(const int number);
 
     ~list_of_enclosures()=default;
 

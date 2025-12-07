@@ -3,7 +3,7 @@
 
 class birds : public animal{
 private:
-    bool can_fly;
+    bool can_fly=0;
 public:
     birds()=default;
     birds(const string& species_name, const string& health, const int number, const int viewing_platform, const int male_number, const int female_number, const int attractiveness, const int enclosure_number, bool can_fly);
