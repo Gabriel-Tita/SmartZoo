@@ -6,9 +6,10 @@ using namespace std;
 
 class animal {
     //clasa care retine informatii despre fiecare specie din parc
-private:
+protected:
     string species_name="Unknown", health="Unknown";
     int number=-1, viewing_platform=-1, male_number=-1, female_number=-1, attractiveness=-1, enclosure_number=-1;
+    virtual void do_print_info()const=0;
 public:
     animal()=default;
 
@@ -26,7 +27,7 @@ public:
 
     virtual void print_details(ostream& os)const;
     friend ostream& operator<<(ostream& os, const animal& animal);
-    virtual void print_info();
+    virtual void print_info() const;
 
     const string& get_species () const;
     void update_gender_of_creatures(const string& gender);

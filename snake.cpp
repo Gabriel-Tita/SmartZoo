@@ -19,10 +19,11 @@ animal *snake::clone() const {
     return new snake(*this);
 }
 
-void snake::print_info() {
-    reptile::print_info();
+void snake::do_print_info() const {
+    reptile::do_print_info();
     cout<<"This snake "<<(is_poisonous?"is ":"isn't ")<<"poisonous"<<"\n";
 }
+
 
 void snake::print_details(ostream& os) const {
     reptile::print_details(os);

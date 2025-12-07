@@ -4,6 +4,8 @@
 class mammal : public animal{
 private:
     bool has_fur=0;
+protected:
+    void do_print_info()const override;
 public:
     mammal()=default;
     mammal(const string& species_name, const string& health, const int number, const int viewing_platform, const int male_number, const int female_number, const int attractiveness, const int enclosure_number, const bool has_fur);
@@ -16,6 +18,5 @@ public:
 
     void print_details(ostream& os)const override;
 
-    void print_info() override;
     bool get_has_fur()const;
 };

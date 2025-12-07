@@ -24,10 +24,11 @@ void lion::print_details(ostream& os)const {
     os<<"Mane colour: "<<mane_colour<<"\n\n";
 }
 
-void lion::print_info(){
-    mammal::print_info();
+void lion::do_print_info() const {
+    mammal::do_print_info();
     cout<<"Mane colour: "<<mane_colour<<"\n";
 }
+
 
 const string& lion::get_mane_colour() const {
     return mane_colour;
