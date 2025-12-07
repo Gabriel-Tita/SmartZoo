@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include "animal.hpp"
+#include <memory>
 using namespace std;
 
 class zoo {
@@ -9,14 +10,14 @@ class zoo {
     //mult mai usor informatii despre fiecare creatura utilizand NUMELE ei)
 private:
     int number=0;
-    vector<animal*> animals;
+    vector<unique_ptr<animal>> animals;
 public:
 
     zoo()=default;
 
     explicit zoo(const int number);
 
-    ~zoo();
+    ~zoo()=default;
 
     friend ostream& operator<<(ostream& os, const zoo& zoo);
 
@@ -32,4 +33,5 @@ public:
 
     void daily_feed_and_sound () const;
 
+    void apply_special_treatment();
 };

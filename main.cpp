@@ -65,5 +65,7 @@ int main() {
     snake1.interesting_facts();
     eagle1.interesting_facts();
 
+    my_smart_zoo.apply_special_treatment();
+
     return 0;
 }

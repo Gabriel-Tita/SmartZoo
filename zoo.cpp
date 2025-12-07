@@ -1,19 +1,14 @@
 #include "zoo.hpp"
+#include "lion.hpp"
+#include "snake.hpp"
+#include "eagle.hpp"
 zoo::zoo(const int number) {
     this->number=number;
     this->number=0;
 }
 
-zoo::~zoo() {
-    for (animal* a:animals) {
-        delete a;
-    }
-    animals.clear();
-    number=0;
-}
-
 void zoo::add(const animal& a) {
-    animals.push_back(a.clone());
+    animals.push_back(unique_ptr<animal>(a.clone()));
     number++;
 }
 
@@ -57,11 +52,30 @@ int zoo::get_info(const string &name) {
 
 void zoo::daily_feed_and_sound() const {
     cout<<"----Daily zoo event: feed and sound check----\n";
-    for (const animal* a:animals) {
+    for (const auto& a:animals) {
         a->print_info();
         a->make_sound();
         std::cout<<"-----------------------------\n";
     }
+}
+
+void zoo::apply_special_treatment() {
+    cout<<"----Applying special treatment----\n";
+    for (const auto& animal_ptr:animals) {
+        lion* lion_ptr=dynamic_cast<lion*>(animal_ptr.get());
+        if (lion_ptr) {
+            cout<<"Lion: Apply speical treatment for the mane colour: "<<lion_ptr->get_mane_colour()<<"\n";
+        }
+        eagle* eagle_ptr=dynamic_cast<eagle*>(animal_ptr.get());
+        if (eagle_ptr) {
+            cout<<"Eagle: Apply special treatment for its feathers\n";
+        }
+        snake* snake_ptr=dynamic_cast<snake*>(animal_ptr.get());
+        if (snake_ptr) {
+            cout<<"Snake: Apply special treatment for its fangs\n";
+        }
+    }
+    cout<<"\n";
 }
 
 
