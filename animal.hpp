@@ -1,8 +1,7 @@
 #pragma once
-// #ifndef OOP_ANIMAL_HPP
-// #define OOP_ANIMAL_HPP
 #include <string>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class animal {
@@ -17,21 +16,20 @@ public:
 
     //contructor de copiere
     animal(const animal& animal);
-
     //operator egal (de atribuire)
     animal& operator=(const animal& animal);
 
-    ~animal();
+    virtual ~animal()=default;
 
+    virtual animal* clone()const=0;
+    virtual void make_sound() const=0;
+
+    virtual void print_details(ostream& os)const;
     friend ostream& operator<<(ostream& os, const animal& animal);
-
-    void print_info();
+    virtual void print_info();
 
     const string& get_species () const;
-
     void update_gender_of_creatures(const string& gender);
-
     int get_more_info();
 };
 
-// #endif //OOP_ANIMAL_HPP

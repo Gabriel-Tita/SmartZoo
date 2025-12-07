@@ -1,64 +1,63 @@
 #include <iostream>
 #include <string>
 #include "Guest.hpp"
+#include "mammal.hpp"
+#include "birds.hpp"
+#include "eagle.hpp"
+#include "lion.hpp"
+#include "Reptile.hpp"
+#include "snake.hpp"
 using namespace std;
 
-int main()
-{
+int main() {
     list_of_enclosures list(0);
-    Guest guest(10, 100, 100, 0);
-    zoo creatures(0);
     money wallet(0);
+    Guest guest(10, 100, 100, 0);
 
-    animal lion("Lion", "great", 2, 3, 1, 1, 84, 1);
-    creatures.add(lion);
+
+    zoo my_smart_zoo;
+    lion lion1("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
+    snake snake1("Python", "Fair", 1, 0, 0, 1, 60, 1, false, false);
+    eagle eagle1("Golden Eagle", "Excellent", 3, 2, 2, 1, 95, 1, true, 2.0);
+    my_smart_zoo.add(lion1);
+    my_smart_zoo.add(snake1);
+    my_smart_zoo.add(eagle1);
+    my_smart_zoo.daily_feed_and_sound();
+
+
     enclosure lion_enclosure("Lion", 4, 1, 2);
+    enclosure snake_enclosure("Snake", 5, 1, 2);
+    enclosure eagle_enclosure("Eagle", 6, 1, 2);
     list.add(lion_enclosure);
+    list.add(snake_enclosure);
+    list.add(eagle_enclosure);
 
-    // pentru a pune in valoare functiile de afisare
-    lion.print_info();
-    lion_enclosure.print_info();
+
+    lion lion2("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
+    enclosure lion2_enclosure("Lion", 4, 1, 2);
+    lion2.print_info();
+    lion2_enclosure.print_info();
     list.print_info();
 
-    animal tiger("Tiger", "great", 1, 3, 1, 0, 87, 1);
-    creatures.add(tiger);
-    enclosure tiger_enclosure("Tiger", 2, 1, 1);
-    list.add(tiger_enclosure);
-
-    animal lion2=lion;
-    animal lion3;
-    lion3=lion;
-
-    //pentru a pune in valoare constructorul de copiere si operatorul de copiere
-    lion2.print_info();
+    lion lion3=lion2;
+    lion lion4;
+    lion4=lion3;
     lion3.print_info();
+    cout<<lion4;
 
-    //pentru a pune in valoare operatorul << pentru toate clasele
-    cout<<tiger;
-    cout<<tiger_enclosure;
-    cout<<list;
-
-    animal zebra("Zebra", "good", 6, 2, 2, 4, 68, 1);
-    creatures.add(zebra);
-    enclosure zebra_enclosure("Zebra", 10, 1, 6);
-    list.add(zebra_enclosure);
-
-    //punem in valoare operatorul << pentru clasa guest
     guest.generate_guests(list);
     cout<<guest;
-
-    cout<<creatures;
-
-    list.query_add_animal(creatures, "Lion", "Male");
+    list.query_add_animal(my_smart_zoo, "Lion", "Male");
     cout<<list;
-    creatures.print_info();
 
-    guest.calculate_rating(creatures);
-
+    guest.calculate_rating(my_smart_zoo);
     guest.calculate_number_of_free_empty_spaces();
-
     guest.guest_incoming(wallet, 100, list);
     cout<<wallet;
     guest.calculate_number_of_free_empty_spaces();
+
+    cout<<eagle1;
+    cout<<snake1;
+    cout<<lion1;
     return 0;
 }

@@ -1,4 +1,3 @@
-// #pragma once
 #include "animal.hpp"
 
 animal::animal(const string& species_name, const string& health, const int number, const int viewing_platform, const int male_number, const int female_number, const int attractiveness, const int enclosure_number)
@@ -38,20 +37,20 @@ animal& animal::operator=(const animal& animal) {
     return *this;
 }
 
-animal::~animal() {
-    cout<<"\n";
+void animal::print_details(ostream& os) const {
+    os<<"Species: "<<species_name<<"\n";
+    os<<"The Health of the animals: "<<health<<"\n";
+    os<<"The number of animals: "<<number<<"\n";
+    os<<"The number of viewing platforms: "<<viewing_platform<<"\n";
+    os<<"The number of males: "<<male_number<<"\n";
+    os<<"The number of females: "<<female_number<<"\n";
+    os<<"The attractiveness (a number based on how rare this animal is): "<<attractiveness<<"\n";
+    os<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n";
 }
 
 ostream& operator<<(ostream& os, const animal& animal) {
     os<<"This is what we know about the next animal!"<<"\n";
-    os<<"Species: "<<animal.species_name<<"\n";
-    os<<"The Health of the animals: "<<animal.health<<"\n";
-    os<<"The number of animals: "<<animal.number<<"\n";
-    os<<"The number of viewing platforms: "<<animal.viewing_platform<<"\n";
-    os<<"The number of males: "<<animal.male_number<<"\n";
-    os<<"The number of females: "<<animal.female_number<<"\n";
-    os<<"The attractiveness (a number based on how rare this animal is): "<<animal.attractiveness<<"\n";
-    os<<"The number of enclosures in which this creature lives: "<<animal.enclosure_number<<"\n\n";
+    animal.print_details(os);
     return os;
 }
 
@@ -65,7 +64,7 @@ void animal::print_info()
     cout<<"The number of males: "<<male_number<<"\n";
     cout<<"The number of females: "<<female_number<<"\n";
     cout<<"The attractiveness (a number based on how rare this animal is): "<<attractiveness<<"\n";
-    cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n\n";
+    cout<<"The number of enclosures in which this creature lives: "<<enclosure_number<<"\n";
 }
 
 const string& animal::get_species () const {

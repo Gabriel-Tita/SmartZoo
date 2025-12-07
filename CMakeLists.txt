@@ -56,6 +56,17 @@ add_executable(${MAIN_EXECUTABLE_NAME}
     zoo.cpp
     list_of_enclosures.cpp
     Guest.cpp
+    mammal.cpp
+        Reptile.cpp
+        Reptile.hpp
+        birds.cpp
+        birds.hpp
+        lion.cpp
+        lion.hpp
+        snake.cpp
+        snake.hpp
+        eagle.cpp
+        eagle.hpp
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

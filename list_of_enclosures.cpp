@@ -1,4 +1,3 @@
-// #pragma once
 #include "list_of_enclosures.hpp"
 
 list_of_enclosures::list_of_enclosures(const int number) {

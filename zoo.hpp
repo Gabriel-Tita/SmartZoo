@@ -1,6 +1,4 @@
 #pragma once
-// #ifndef OOP_ZOO_HPP
-// #define OOP_ZOO_HPP
 #include <vector>
 #include <iostream>
 #include "animal.hpp"
@@ -10,15 +8,15 @@ class zoo {
     //clasa care retine informatii generale despre fiecare specie din tarc(utila pentru ca putem cauta
     //mult mai usor informatii despre fiecare creatura utilizand NUMELE ei)
 private:
-    int number=-1;
-    vector<animal> animals;
+    int number=0;
+    vector<animal*> animals;
 public:
 
     zoo()=default;
 
     explicit zoo(const int number);
 
-    ~zoo()=default;
+    ~zoo();
 
     friend ostream& operator<<(ostream& os, const zoo& zoo);
 
@@ -30,5 +28,8 @@ public:
 
     int get_info(const string& name);
 
+    int get_curent_number() const;
+
+    void daily_feed_and_sound () const;
+
 };
-// #endif //OOP_ZOO_HPP

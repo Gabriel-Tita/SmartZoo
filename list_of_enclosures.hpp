@@ -1,6 +1,4 @@
 #pragma once
-// #ifndef OOP_LIST_OF_ENCLOSURES_HPP
-// #define OOP_LIST_OF_ENCLOSURES_HPP
 #include <iostream>
 #include "enclosure.hpp"
 #include "zoo.hpp"
@@ -15,7 +13,7 @@ private:
 public:
     list_of_enclosures()=default;
 
-    explicit list_of_enclosures(const int number);
+    list_of_enclosures(const int number);
 
     ~list_of_enclosures()=default;
 
@@ -31,4 +29,3 @@ void add(const enclosure& Enclosure);
 
     friend ostream& operator<<(ostream& os, const list_of_enclosures& list_of_enclosures);
 };
-// #endif //OOP_LIST_OF_ENCLOSURES_HPP

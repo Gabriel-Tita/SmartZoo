@@ -1,6 +1,4 @@
 #pragma once
-// #ifndef OOP_GUEST_HPP
-// #define OOP_GUEST_HPP
 #include "list_of_enclosures.hpp"
 #include "money.hpp"
 
@@ -39,4 +37,3 @@ public:
 
     void guest_incoming(money& wallet, const int people, const list_of_enclosures& list);
 };
-// #endif //OOP_GUEST_HPP

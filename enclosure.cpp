@@ -1,4 +1,3 @@
-// #pragma once
 #include "enclosure.hpp"
 // clasa care retine informatii despre tarcurile fiecarei specii
 
