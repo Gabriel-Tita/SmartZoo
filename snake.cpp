@@ -12,7 +12,7 @@ snake& snake::operator=(const snake& other) {
 }
 
 void snake::make_sound() const {
-    cout<<"Hissss"<<"\n\n";
+    cout<<"HISSS"<<"\n\n";
 }
 
 animal *snake::clone() const {
