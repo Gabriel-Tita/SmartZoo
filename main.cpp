@@ -11,7 +11,7 @@
 using namespace std;
 
 int main() {
-    list_of_enclosures list(0);
+    list_of_enclosures list;
     money wallet(0);
     Guest guest(10, 100, 100, 0);
 
@@ -24,6 +24,7 @@ int main() {
     my_smart_zoo.add(eagle1);
     my_smart_zoo.daily_feed_and_sound();
 
+    cout<<"\nThere are "<<my_smart_zoo.get_number_of_families()<<"families of animals.\n\n";
 
     enclosure lion_enclosure("Lion", 4, 1, 2);
     enclosure snake_enclosure("Snake", 5, 1, 2);
@@ -31,6 +32,7 @@ int main() {
     list.add(lion_enclosure);
     list.add(snake_enclosure);
     list.add(eagle_enclosure);
+    cout<<"\nThere are "<<list.get_number_of_enclosures()<<" enclosures.\n\n";
 
 
     lion lion2("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");

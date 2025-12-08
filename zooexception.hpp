@@ -5,7 +5,7 @@ using namespace std;
 
 class zooexception : public std::runtime_error {
 public:
-    zooexception(const string& message): std::runtime_error(message) {}
+    explicit zooexception(const string& message): std::runtime_error(message) {}
 };
 
 class invalid_input_exception :public zooexception {

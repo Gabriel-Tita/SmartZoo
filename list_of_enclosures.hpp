@@ -7,21 +7,19 @@ using namespace std;
 class list_of_enclosures {
 private:
     // clasa care retine cate tarcuri avem pentru fiecare specie
-    int number=-1;
+    static int number;
     vector<enclosure> enc;
 
 public:
     list_of_enclosures()=default;
 
-    explicit list_of_enclosures(const int number);
-
     ~list_of_enclosures()=default;
 
-    int get_number_of_enclosures() const;
+    static int get_number_of_enclosures();
 
     const string& get_enclosure_species(const int num) const;
 
-void add(const enclosure& Enclosure);
+    void add(const enclosure& Enclosure);
 
     void query_add_animal(zoo& species, const string& name, const string& gender);
 

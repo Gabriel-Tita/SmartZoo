@@ -1,10 +1,8 @@
 #include "list_of_enclosures.hpp"
 
-list_of_enclosures::list_of_enclosures(const int number) {
-    this->number=number;
-}
+int list_of_enclosures::number=0;
 
-int list_of_enclosures::get_number_of_enclosures() const{
+int list_of_enclosures::get_number_of_enclosures(){
     return number;
 }
 

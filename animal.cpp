@@ -12,7 +12,6 @@ animal::animal(const string& species_name, const string& health, const int numbe
     this->female_number=female_number;
     this->attractiveness=attractiveness;
     this->enclosure_number=enclosure_number;
-
 }
 
 //contructor de copiere

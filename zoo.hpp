@@ -9,13 +9,13 @@ class zoo {
     //clasa care retine informatii generale despre fiecare specie din tarc(utila pentru ca putem cauta
     //mult mai usor informatii despre fiecare creatura utilizand NUMELE ei)
 private:
-    int number=0;
     vector<unique_ptr<animal>> animals;
+    static int number_of_families_of_animals;
 public:
 
-    zoo()=default;
+    static int get_number_of_families();
 
-    explicit zoo(const int number);
+    zoo()=default;
 
     ~zoo()=default;
 
