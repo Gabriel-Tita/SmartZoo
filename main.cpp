@@ -25,7 +25,7 @@ int main() {
     my_smart_zoo.add(eagle1);
     my_smart_zoo.daily_feed_and_sound();
 
-    cout<<"\nThere are "<<my_smart_zoo.get_number_of_families()<<" families of animals.\n\n";
+    cout << "\nThere are " << my_smart_zoo.get_number_of_families() << " families of animals.\n\n";
 
     enclosure lion_enclosure("Lion", 4, 1, 2);
     enclosure snake_enclosure("Snake", 5, 1, 2);
@@ -33,7 +33,7 @@ int main() {
     list.add(lion_enclosure);
     list.add(snake_enclosure);
     list.add(eagle_enclosure);
-    cout<<"\nThere are "<<list.get_number_of_enclosures()<<" enclosures.\n\n";
+    cout << "\nThere are " << list.get_number_of_enclosures() << " enclosures.\n\n";
 
 
     lion lion2("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
@@ -42,28 +42,28 @@ int main() {
     lion2_enclosure.print_info();
     list.print_info();
 
-    lion lion3=lion2;
+    lion lion3 = lion2;
     lion lion4;
-    lion4=lion3;
+    lion4 = lion3;
     lion3.print_info();
-    cout<<lion4;
+    cout << lion4;
 
     guest.generate_guests(list);
-    cout<<guest;
+    cout << guest;
     list.query_add_animal(my_smart_zoo, "Lion", "Male");
-    cout<<list;
+    cout << list;
 
     guest.calculate_rating(my_smart_zoo);
     guest.calculate_number_of_free_empty_spaces();
     guest.guest_incoming(wallet, 100, list);
-    cout<<wallet;
+    cout << wallet;
     guest.calculate_number_of_free_empty_spaces();
 
-    cout<<eagle1;
-    cout<<snake1;
-    cout<<lion1;
+    cout << eagle1;
+    cout << snake1;
+    cout << lion1;
 
-    cout<<"----Interesting Facts----\n";
+    cout << "----Interesting Facts----\n";
     lion1.interesting_facts();
     snake1.interesting_facts();
     eagle1.interesting_facts();
@@ -78,28 +78,24 @@ int main() {
     croc1.print_info();
     my_smart_zoo.apply_special_treatment();
     my_smart_zoo.daily_feed_and_sound();
-    cout<<"\nThere are "<<my_smart_zoo.get_number_of_families()<<" families of animals.\n\n";
-    cout<<"\nThere are "<<list.get_number_of_enclosures()<<" enclosures.\n\n";
+    cout << "\nThere are " << my_smart_zoo.get_number_of_families() << " families of animals.\n\n";
+    cout << "\nThere are " << list.get_number_of_enclosures() << " enclosures.\n\n";
 
     ///exceptii teste
     try {
-        //my_smart_zoo.add_individual("tiger", "red");
-        //my_smart_zoo.add_individual("tiger", "Male");
-    }
-    catch (const invalid_input_exception& e) {
-        cerr<<"\n[Prins invalid_input_exception]: Detaliu: "<<e.what()<<"\n";
-    }
-    catch (const animal_not_found_exception& e) {
-        cerr<<"\n[Animal_not_found_exception]: Detaliu: "<<e.what()<<"\n";
-    }
-    catch (const cloning_failure_exception& e) {
-        cerr<<"\n[Cloning_failure_exception]: Detaliu: "<<e.what()<<"\n";
-    }
-    catch (const zooexception& e) {
-        cerr<<"\n[EROARE GENERICA]: o exceptie necunoscuta a fost prinsa. Detaliu: "<<e.what()<<"\n";
-    }
-    catch (const std::exception& e) {
-        std::cerr<<"[EROARE CRITICA STANDARD C++]: Programul a intampinat o eroare standard. Detaliu:"<<e.what()<<"\n";
+        ///my_smart_zoo.add_individual("tiger", "red");
+        ///my_smart_zoo.add_individual("tiger", "Male");
+    } catch (const invalid_input_exception &e) {
+        cerr << "\n[Prins invalid_input_exception]: Detaliu: " << e.what() << "\n";
+    } catch (const animal_not_found_exception &e) {
+        cerr << "\n[Animal_not_found_exception]: Detaliu: " << e.what() << "\n";
+    } catch (const cloning_failure_exception &e) {
+        cerr << "\n[Cloning_failure_exception]: Detaliu: " << e.what() << "\n";
+    } catch (const zooexception &e) {
+        cerr << "\n[EROARE GENERICA]: o exceptie necunoscuta a fost prinsa. Detaliu: " << e.what() << "\n";
+    } catch (const std::exception &e) {
+        std::cerr << "[EROARE CRITICA STANDARD C++]: Programul a intampinat o eroare standard. Detaliu:" << e.what() <<
+                "\n";
     }
     return 0;
 }

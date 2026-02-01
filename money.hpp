@@ -4,15 +4,16 @@ using namespace std;
 
 class money {
 private:
-    int coins=-1;
+    int coins = -1;
+
 public:
-    money()=default;
+    money() = default;
 
     explicit money(const int coins);
 
     void set_wallet(const int amount_to_be_added);
 
-    ~money()=default;
+    ~money() = default;
 
-    friend ostream& operator<<(ostream& os, const money& money);
+    friend ostream &operator<<(ostream &os, const money &money);
 };

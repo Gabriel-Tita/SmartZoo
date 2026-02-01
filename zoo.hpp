@@ -9,29 +9,29 @@ class zoo {
     //clasa care retine informatii generale despre fiecare specie din tarc(utila pentru ca putem cauta
     //mult mai usor informatii despre fiecare creatura utilizand NUMELE ei)
 private:
-    vector<unique_ptr<animal>> animals;
+    vector<unique_ptr<animal> > animals;
     static int number_of_families_of_animals;
-public:
 
+public:
     static int get_number_of_families();
 
-    zoo()=default;
+    zoo() = default;
 
-    ~zoo()=default;
+    ~zoo() = default;
 
-    friend ostream& operator<<(ostream& os, const zoo& zoo);
+    friend ostream &operator<<(ostream &os, const zoo &zoo);
 
     void print_info();
 
-    void add(const animal& animal);
+    void add(const animal &animal);
 
-    void add_individual(const string& name, const string& gender);
+    void add_individual(const string &name, const string &gender);
 
-    int get_info(const string& name);
+    int get_info(const string &name);
 
     // int get_curent_number() const;
 
-    void daily_feed_and_sound () const;
+    void daily_feed_and_sound() const;
 
     void apply_special_treatment();
 };
