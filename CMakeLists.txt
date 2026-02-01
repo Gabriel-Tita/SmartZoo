@@ -46,31 +46,31 @@ include(cmake/CopyHelper.cmake)
 # find_package(Threads REQUIRED)
 
 ###############################################################################
-
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${MAIN_EXECUTABLE_NAME}
-    main.cpp
-    money.cpp
-    enclosure.cpp
-    animal.cpp
-    zoo.cpp
-    list_of_enclosures.cpp
-    Guest.cpp
-    mammal.cpp
-        Reptile.cpp
-        Reptile.hpp
-        birds.cpp
-        birds.hpp
-        lion.cpp
-        lion.hpp
-        snake.cpp
-        snake.hpp
-        eagle.cpp
-        eagle.hpp
-        zooexception.hpp
-        crocodile.cpp
-        crocodile.hpp
+        src/main.cpp
+        src/money.cpp
+        src/enclosure.cpp
+        src/animal.cpp
+        src/zoo.cpp
+        src/list_of_enclosures.cpp
+        src/Guest.cpp
+        src/mammal.cpp
+        src/Reptile.cpp
+        headers/Reptile.hpp
+        src/birds.cpp
+        headers/birds.hpp
+        src/lion.cpp
+        headers/lion.hpp
+        src/snake.cpp
+        headers/snake.hpp
+        src/eagle.cpp
+        headers/eagle.hpp
+        headers/zooexception.hpp
+        src/crocodile.cpp
+        headers/crocodile.hpp
 )
+target_include_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/headers)
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
 # NOTE: RUN_SANITIZERS is optional, if it's not present it will default to true

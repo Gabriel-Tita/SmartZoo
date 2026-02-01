@@ -1,5 +1,4 @@
 #include "eagle.hpp"
-
 #include "mammal.hpp"
 
 eagle::eagle(const string &species_name, const string &health, const int number, const int viewing_platform,

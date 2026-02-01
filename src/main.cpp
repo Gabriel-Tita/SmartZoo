@@ -36,7 +36,6 @@ int main() {
     list.add(eagle_enclosure);
     cout << "\nThere are " << list.get_number_of_enclosures() << " enclosures.\n\n";
 
-
     lion lion2("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
     enclosure lion2_enclosure("Lion", 4, 1, 2);
     lion2.print_info();
