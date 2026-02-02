@@ -1,7 +1,6 @@
 #ifndef OOP_TRATAMENT_HPP
 #define OOP_TRATAMENT_HPP
 
-#pragma once
 #include <iosfwd>
 
 class Tratament {

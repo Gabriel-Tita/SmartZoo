@@ -27,6 +27,7 @@ public:
 
     virtual ~animal() = default;
 
+    // Prototype pattern: polymorphic copy (virtual constructor)
     virtual animal *clone() const =0;
 
     virtual void make_sound() const =0;

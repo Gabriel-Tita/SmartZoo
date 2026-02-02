@@ -72,6 +72,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/Tratament.hpp
         headers/App.hpp
         src/App.cpp
+        headers/AnimalFactory.hpp
+        src/AnimalFactory.cpp
 )
 target_include_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/headers)
 

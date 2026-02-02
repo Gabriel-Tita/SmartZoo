@@ -71,6 +71,29 @@ void App::run() {
 
     my_smart_zoo.simulateDay(std::cout);
 
+    /// using prototype pattern
+    lion l("Lion", "Healthy", 10, 1, 4, 6, 9, 2, true, "Golden");
+
+    animal& base = l;                       // referință la baza abstractă
+    std::unique_ptr<animal> copy(base.clone()); // Prototype: copie polimorfă
+
+    std::cout << "Original:\n";
+    base.print_info();
+
+    std::cout << "\nClone:\n";
+    copy->print_info();
+
+    my_smart_zoo.add(l);
+    my_smart_zoo.print_info();
+
+    AnimalFactory factory;
+
+    auto a1 = factory.create("lion");
+    auto a2 = factory.create("snake");
+
+    my_smart_zoo.add(*a1);
+    my_smart_zoo.add(*a2);
+
     ///exceptii teste
     try {
         ///my_smart_zoo.add_individual("tiger", "red");

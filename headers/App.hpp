@@ -9,6 +9,7 @@
 #include "crocodile.hpp"
 #include "snake.hpp"
 #include "zooexception.hpp"
+#include "AnimalFactory.hpp"
 
 
 class App {
