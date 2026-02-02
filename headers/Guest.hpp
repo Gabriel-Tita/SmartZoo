@@ -32,8 +32,6 @@ public:
 
     const vector<string>& get_positions() const { return position; }
 
-    int get_number() const { return number; }
-
     friend ostream &operator<<(ostream &os, const Guest &guest);
 
     void calculate_rating(zoo &creatures);
