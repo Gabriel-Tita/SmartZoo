@@ -1,6 +1,12 @@
 #include "App.hpp"
 #include <iostream>
 
+/**
+ * @brief Runs a demo scenario for the zoo application.
+ *
+ * Creates animals and enclosures, simulates visitors, tests features
+ * (printing, feeding, cloning, factory creation) and basic exception handling.
+ */
 void App::run() {
 
     CounterMap<string> animalTypes;
@@ -94,8 +100,8 @@ void App::run() {
     /// using prototype pattern
     Lion l("Lion", "Healthy", 10, 1, 4, 6, 9, 2, true, "Golden");
 
-    const Animal& base = l;                     // referință la baza abstractă
-    std::unique_ptr<Animal> copy(base.clone()); // Prototype: copie polimorfă
+    const Animal& base = l;
+    std::unique_ptr<Animal> copy(base.clone());
 
     std::cout << "Original:\n";
     base.printInfo();
@@ -116,7 +122,6 @@ void App::run() {
 
     printHistogram(animalTypes, "Animals by species");
 
-    ///exceptii teste
     try {
         ///my_smart_zoo.add_individual("tiger", "red");
         ///my_smart_zoo.add_individual("tiger", "Male");

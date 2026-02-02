@@ -49,26 +49,26 @@ include(cmake/CopyHelper.cmake)
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${MAIN_EXECUTABLE_NAME}
         src/main.cpp
-        src/money.cpp
-        src/enclosure.cpp
-        src/animal.cpp
-        src/zoo.cpp
+        src/Money.cpp
+        src/Enclosure.cpp
+        src/Animal.cpp
+        src/Zoo.cpp
         src/ListOfEnclosures.cpp
         src/Guest.cpp
-        src/mammal.cpp
+        src/Mammal.cpp
         src/Reptile.cpp
         headers/Reptile.hpp
-        src/birds.cpp
-        headers/birds.hpp
-        src/lion.cpp
-        headers/lion.hpp
-        src/snake.cpp
-        headers/snake.hpp
-        src/eagle.cpp
-        headers/eagle.hpp
-        headers/zooexception.hpp
-        src/crocodile.cpp
-        headers/crocodile.hpp
+        src/Birds.cpp
+        headers/Birds.hpp
+        src/Lion.cpp
+        headers/Lion.hpp
+        src/Snake.cpp
+        headers/Snake.hpp
+        src/Eagle.cpp
+        headers/Eagle.hpp
+        headers/Zooexception.hpp
+        src/Crocodile.cpp
+        headers/Crocodile.hpp
         headers/Treatment.hpp
         headers/App.hpp
         src/App.cpp

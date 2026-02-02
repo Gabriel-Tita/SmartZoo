@@ -1,18 +1,29 @@
 #include "Guest.hpp"
 
 //clasa care retine informatii cu privire la vizitatori
+
+/** @brief Increases the internal guest counter. */
 void Guest::setNumber() {
     number++;
 }
 
+/**
+ * @brief Adds a position (enclosure species) for the next guest.
+ */
 void Guest::setPosition(const ListOfEnclosures &list, int num) {
     position.push_back(list.getEnclosureSpecies(num));
 }
 
+/**
+ * @brief Stores whether the guest came by car (0/1).
+ */
 void Guest::setParkingLot(int num) {
     car.push_back((bool) num);
 }
 
+/**
+ * @brief Constructs a Guest manager with parking settings.
+ */
 Guest::Guest(int amountPerParkingSpace, int freeParkingSpaces, int payingParkingSpaces,
              int number) {
     this->amountPerParkingSpace = amountPerParkingSpace;
@@ -21,6 +32,9 @@ Guest::Guest(int amountPerParkingSpace, int freeParkingSpaces, int payingParking
     this->number = number;
 }
 
+/**
+ * @brief Generates guests, assigns positions, and prints a small car histogram.
+ */
 void Guest::generateGuests(const ListOfEnclosures &list) {
     int numberOfEnclosures = list.getNumberOfEnclosures();
 
@@ -40,6 +54,9 @@ void Guest::generateGuests(const ListOfEnclosures &list) {
     printHistogram(carCount, "Guests with car (1) vs without car (0)");
 }
 
+/**
+ * @brief Prints all guests with their location and car status.
+ */
 ostream &operator<<(ostream &os, const Guest &guest) {
     os << "This is the list with the location of each guest!" << "\n";
     for (int i = 0; i < guest.number; i++) {
@@ -54,6 +71,9 @@ ostream &operator<<(ostream &os, const Guest &guest) {
     return os;
 }
 
+/**
+ * @brief Computes the highest rated animal based on number of visitors.
+ */
 void Guest::calculateRating(const Zoo &creatures) const {
     int maximumRating = 0;
     vector<string> verifiedCreatures;
@@ -87,6 +107,9 @@ void Guest::calculateRating(const Zoo &creatures) const {
          << "with a rating of " << maximumRating << "!\n\n";
 }
 
+/**
+ * @brief Prints the number of free parking spaces left.
+ */
 void Guest::calculateNumberOfFreeEmptySpaces() const {
     int occupiedSpaces = 0;
     for (int i = 0; i < number; i++) {
@@ -100,6 +123,9 @@ void Guest::calculateNumberOfFreeEmptySpaces() const {
         cout << "The are no free empty spaces!\n\n";
 }
 
+/**
+ * @brief Returns the number of free parking spaces left.
+ */
 int Guest::returnNumberOfFreeEmptySpaces() const {
     int occupiedSpaces = 0;
     for (int i = 0; i < number; i++) {
@@ -110,6 +136,9 @@ int Guest::returnNumberOfFreeEmptySpaces() const {
     return freeParkingSpaces - occupiedSpaces;
 }
 
+/**
+ * @brief Adds incoming guests and charges for parking if no free spaces are left.
+ */
 void Guest::guestIncoming(Money &wallet, int people, const ListOfEnclosures &list) {
     int number_of_enclosures = list.getNumberOfEnclosures();
     for (int i = 0; i < people; i++) {

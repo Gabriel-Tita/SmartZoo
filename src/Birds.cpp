@@ -1,5 +1,8 @@
 #include "Birds.hpp"
 
+/**
+ * @brief Constructs a bird with all base Animal attributes and flight ability.
+ */
 Birds::Birds(const string &speciesName, const string &health, int number, int viewingPlatform,
              int maleNumber, int femaleNumber, int attractiveness, int enclosureNumber,
              bool canFly)
@@ -7,9 +10,14 @@ Birds::Birds(const string &speciesName, const string &health, int number, int vi
              enclosureNumber), canFly(canFly) {
 }
 
+/** @brief Copy constructor. */
 Birds::Birds(const Birds &other) : Animal(other), canFly(other.canFly) {
 }
 
+/**
+ * @brief Copy assignment operator.
+ * @return Reference to *this.
+ */
 Birds &Birds::operator=(const Birds &other) {
     if (this != &other) {
         Animal::operator=(other);
@@ -18,11 +26,17 @@ Birds &Birds::operator=(const Birds &other) {
     return *this;
 }
 
+/**
+ * @brief Prints Animal details and adds flight information.
+ */
 void Birds::printDetails(ostream &os) const {
     Animal::printDetails(os);
     os << "This bird " << (canFly ? "can " : "can't ") << "fly." << "\n";
 }
 
+/**
+ * @brief Prints basic bird information (used by printInfo()).
+ */
 void Birds::doPrintInfo() const {
     cout << "Species: " << speciesName << "\n";
     cout << "The Health of the animals: " << health << "\n";
@@ -35,6 +49,7 @@ void Birds::doPrintInfo() const {
     cout << "This bird " << (canFly ? "can " : "can't ") << "fly." << "\n";
 }
 
+/** @brief Returns whether the bird can fly. */
 bool Birds::getCanFly() const {
     return canFly;
 }

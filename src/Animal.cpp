@@ -1,5 +1,8 @@
 #include "Animal.hpp"
 
+/**
+ * @brief Constructs an Animal using all provided attributes.
+ */
 Animal::Animal(const string &speciesName, const string &health, int number, int viewingPlatform,
                int maleNumber, int femaleNumber, int attractiveness, int enclosureNumber) {
     this->speciesName = speciesName;
@@ -12,6 +15,7 @@ Animal::Animal(const string &speciesName, const string &health, int number, int 
     this->enclosureNumber = enclosureNumber;
 }
 
+/** @brief Copy constructor. */
 Animal::Animal(const Animal &animal) {
     this->speciesName = animal.speciesName;
     this->health = animal.health;
@@ -24,6 +28,10 @@ Animal::Animal(const Animal &animal) {
 }
 
 //operator egal (de atribuire)
+/**
+ * @brief Copy assignment operator.
+ * @return Reference to *this.
+ */
 Animal &Animal::operator=(const Animal &animal) {
     this->speciesName = animal.speciesName;
     this->health = animal.health;
@@ -36,6 +44,9 @@ Animal &Animal::operator=(const Animal &animal) {
     return *this;
 }
 
+/**
+ * @brief Prints all stored details about the animal to a stream.
+ */
 void Animal::printDetails(ostream &os) const {
     os << "Species: " << speciesName << "\n";
     os << "The Health of the animals: " << health << "\n";
@@ -47,20 +58,31 @@ void Animal::printDetails(ostream &os) const {
     os << "The number of enclosures in which this creature lives: " << enclosureNumber << "\n";
 }
 
+/**
+ * @brief Stream insertion operator for Animal.
+ */
 ostream &operator<<(ostream &os, const Animal &animal) {
     os << "This is what we know about the next animal!" << "\n";
     animal.printDetails(os);
     return os;
 }
 
+/**
+ * @brief Prints basic info by calling the derived implementation.
+ */
 void Animal::printInfo() const {
     this->doPrintInfo();
 }
 
+/** @brief Returns the species name. */
 const string &Animal::getSpecies() const {
     return speciesName;
 }
 
+/**
+ * @brief Increases total number and updates male/female counters.
+ * @param gender Gender string (checks for "Male").
+ */
 void Animal::updateGenderOfCreatures(const string &gender) {
     number++;
     if (gender == "Male") {
@@ -70,6 +92,9 @@ void Animal::updateGenderOfCreatures(const string &gender) {
     }
 }
 
+/**
+ * @brief Returns a simple computed value (number * attractiveness).
+ */
 int Animal::getMoreInfo() const {
     return number * attractiveness;
 }

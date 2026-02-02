@@ -13,8 +13,15 @@
 #include "CounterMap.hpp"
 #include "Utils.hpp"
 
+/**
+ * @class App
+ * @brief Entry point class used to run the application demo.
+ *
+ * Contains a single static method that runs a full example of the zoo simulation.
+ */
 class App {
 public:
+    /** @brief Runs the main demo logic of the project. */
     static void run();
 };
 

@@ -1,6 +1,9 @@
 #include "AnimalFactory.hpp"
 #include <stdexcept>
 
+/**
+ * @brief Initializes the factory with all supported animal creators.
+ */
 AnimalFactory::AnimalFactory() {
     creators["lion"] = []() {
         return make_unique<Lion>("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
@@ -16,6 +19,12 @@ AnimalFactory::AnimalFactory() {
     };
 }
 
+/**
+ * @brief Creates an animal based on the given type.
+ * @param type String key for the animal type.
+ * @return Unique pointer to the created animal.
+ * @throws runtime_error If the type is not registered.
+ */
 unique_ptr<Animal> AnimalFactory::create(const string& type) const {
     const auto it = creators.find(type);
     if (it == creators.end())
