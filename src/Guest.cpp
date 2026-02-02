@@ -104,7 +104,7 @@ void Guest::calculateRating(const Zoo &creatures) const {
         }
     }
     cout << "The creature that is the highest rated in the zoo is the " << winner_name << " "
-         << "with a rating of " << maximumRating << "!\n\n";
+            << "with a rating of " << maximumRating << "!\n\n";
 }
 
 /**

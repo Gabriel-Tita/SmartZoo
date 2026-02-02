@@ -1,5 +1,8 @@
 #include "Reptile.hpp"
 
+/**
+ * @brief Constructs a reptile with all attributes.
+ */
 Reptile::Reptile(const string &speciesName, const string &health, int number, int viewingPlatform,
                  int maleNumber, int femaleNumber, int attractiveness, int enclosureNumber,
                  bool coldBlooded)
@@ -7,9 +10,14 @@ Reptile::Reptile(const string &speciesName, const string &health, int number, in
              enclosureNumber), coldBlooded(coldBlooded) {
 }
 
+/** @brief Copy constructor. */
 Reptile::Reptile(const Reptile &other) : Animal(other), coldBlooded(other.coldBlooded) {
 }
 
+/**
+ * @brief Copy assignment operator.
+ * @return Reference to *this.
+ */
 Reptile &Reptile::operator=(const Reptile &other) {
     if (this != &other) {
         Animal::operator=(other);
@@ -18,6 +26,9 @@ Reptile &Reptile::operator=(const Reptile &other) {
     return *this;
 }
 
+/**
+ * @brief Prints basic reptile information.
+ */
 void Reptile::doPrintInfo() const {
     cout << "Species: " << speciesName << "\n";
     cout << "The Health of the animals: " << health << "\n";
@@ -30,11 +41,15 @@ void Reptile::doPrintInfo() const {
     cout << "This reptile is " << (coldBlooded ? "" : "not ") << "cold blooded." << "\n";
 }
 
+/**
+ * @brief Prints detailed reptile information to a stream.
+ */
 void Reptile::printDetails(ostream &os) const {
     Animal::printDetails(os);
     os << "This reptile is " << (coldBlooded ? "" : "not ") << "cold blooded." << "\n";
 }
 
+/** @brief Returns whether the reptile is cold-blooded. */
 bool Reptile::isColdBlooded() const {
     return coldBlooded;
 }

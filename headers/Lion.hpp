@@ -8,7 +8,7 @@
  *
  * Extends Mammal with information about mane colour and supports treatment.
  */
-class Lion : public Mammal , public Treatment {
+class Lion : public Mammal, public Treatment {
 private:
     /** @brief Colour of the lion's mane. */
     string maneColour = "Unknown";
@@ -44,7 +44,7 @@ public:
     void makeSound() const override;
 
     /** @brief Applies a medical treatment to the lion. */
-    void applyTreatment(ostream& os) const override;
+    void applyTreatment(ostream &os) const override;
 
     /**
      * @brief Polymorphic copy of the lion.

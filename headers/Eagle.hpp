@@ -40,7 +40,7 @@ public:
     void makeSound() const override;
 
     /** @brief Applies a medical treatment to the eagle. */
-    void applyTreatment(std::ostream& os) const override;
+    void applyTreatment(std::ostream &os) const override;
 
     /**
      * @brief Polymorphic copy of the eagle.

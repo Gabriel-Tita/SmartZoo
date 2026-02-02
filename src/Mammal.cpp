@@ -1,6 +1,9 @@
 #include "Mammal.hpp"
 #include <algorithm>
 
+/**
+ * @brief Constructs a mammal with all attributes.
+ */
 Mammal::Mammal(const string &speciesName, const string &health, int number, int viewingPlatform,
                int maleNumber, int femaleNumber, int attractiveness, int enclosureNumber,
                bool hasFur)
@@ -8,9 +11,14 @@ Mammal::Mammal(const string &speciesName, const string &health, int number, int 
              attractiveness, enclosureNumber), hasFur(hasFur) {
 }
 
+/** @brief Copy constructor. */
 Mammal::Mammal(const Mammal &other) : Animal(other), hasFur(other.hasFur) {
 }
 
+/**
+ * @brief Copy assignment operator.
+ * @return Reference to *this.
+ */
 Mammal &Mammal::operator=(const Mammal &other) {
     if (this != &other) {
         Animal::operator=(other);
@@ -19,6 +27,9 @@ Mammal &Mammal::operator=(const Mammal &other) {
     return *this;
 }
 
+/**
+ * @brief Prints basic mammal information.
+ */
 void Mammal::doPrintInfo() const {
     cout << "Species: " << speciesName << "\n";
     cout << "The Health of the animals: " << health << "\n";
@@ -31,15 +42,22 @@ void Mammal::doPrintInfo() const {
     cout << "This Mammal " << (hasFur ? "has fur." : "has no fur.") << "\n";
 }
 
+/**
+ * @brief Prints detailed mammal information to a stream.
+ */
 void Mammal::printDetails(ostream &os) const {
     Animal::printDetails(os);
     os << "This Mammal " << (hasFur ? "has fur." : "has no fur.") << "\n";
 }
 
+/** @brief Returns whether the mammal has fur. */
 bool Mammal::getHasFur() const {
     return hasFur;
 }
 
+/**
+ * @brief Swaps all data between two mammals.
+ */
 void Mammal::swapp(Mammal &other) {
     swap(hasFur, other.hasFur);
     swap(speciesName, other.speciesName);

@@ -64,7 +64,7 @@ public:
     void generateGuests(const ListOfEnclosures &list);
 
     /** @brief Returns the list of visited enclosure/species names. */
-    const vector<string>& getPositions() const { return position; }
+    const vector<string> &getPositions() const { return position; }
 
     /** @brief Output operator for printing guests and their positions. */
     friend ostream &operator<<(ostream &os, const Guest &guest);

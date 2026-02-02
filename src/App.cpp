@@ -8,7 +8,6 @@
  * (printing, feeding, cloning, factory creation) and basic exception handling.
  */
 void App::run() {
-
     CounterMap<string> animalTypes;
     ListOfEnclosures list;
     Money wallet(0);
@@ -56,12 +55,12 @@ void App::run() {
 
     CounterMap<string> visitorsBySpecies;
 
-    for (const auto& s : guest.getPositions()) {
+    for (const auto &s: guest.getPositions()) {
         visitorsBySpecies.add(s);
     }
 
     cout << "--- Visitors per enclosure/species ---\n";
-    for (const auto& p : visitorsBySpecies.items()) {
+    for (const auto &p: visitorsBySpecies.items()) {
         cout << "    " << p.first << " -> " << p.second << "\n";
     }
 
@@ -100,7 +99,7 @@ void App::run() {
     /// using prototype pattern
     Lion l("Lion", "Healthy", 10, 1, 4, 6, 9, 2, true, "Golden");
 
-    const Animal& base = l;
+    const Animal &base = l;
     std::unique_ptr<Animal> copy(base.clone());
 
     std::cout << "Original:\n";
@@ -135,6 +134,6 @@ void App::run() {
         cerr << "\n[EROARE GENERICA]: o exceptie necunoscuta a fost prinsa. Detaliu: " << e.what() << "\n";
     } catch (const std::exception &e) {
         std::cerr << "[EROARE CRITICA STANDARD C++]: Programul a intampinat o eroare standard. Detaliu:" << e.what()
-                  << "\n";
+                << "\n";
     }
 }

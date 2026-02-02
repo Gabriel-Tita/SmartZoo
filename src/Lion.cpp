@@ -35,7 +35,7 @@ void Lion::makeSound() const {
 /**
  * @brief Applies a simple treatment procedure for the lion.
  */
-void Lion::applyTreatment(ostream& os) const{
+void Lion::applyTreatment(ostream &os) const {
     os << "Lion: vaccination + health check.\n";
 }
 

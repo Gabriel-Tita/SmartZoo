@@ -30,7 +30,7 @@ Eagle &Eagle::operator=(const Eagle &other) {
 /**
  * @brief Applies a simple treatment procedure for the eagle.
  */
-void Eagle::applyTreatment(std::ostream& os) const {
+void Eagle::applyTreatment(std::ostream &os) const {
     os << "Eagle: wing inspection + parasite check.\n";
 }
 

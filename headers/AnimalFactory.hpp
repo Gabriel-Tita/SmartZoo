@@ -34,7 +34,7 @@ public:
      * @param type String representing the animal type.
      * @return Unique pointer to the created Animal.
      */
-    unique_ptr<Animal> create(const string& type) const;
+    unique_ptr<Animal> create(const string &type) const;
 };
 
 #endif //OOP_ANIMALFACTORY_HPP

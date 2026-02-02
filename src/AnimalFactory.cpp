@@ -25,7 +25,7 @@ AnimalFactory::AnimalFactory() {
  * @return Unique pointer to the created animal.
  * @throws runtime_error If the type is not registered.
  */
-unique_ptr<Animal> AnimalFactory::create(const string& type) const {
+unique_ptr<Animal> AnimalFactory::create(const string &type) const {
     const auto it = creators.find(type);
     if (it == creators.end())
         throw runtime_error("Unknown animal type: " + type);
