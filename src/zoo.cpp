@@ -53,6 +53,15 @@ void zoo::add_individual(const string &name, const string &gender) {
     throw animal_not_found_exception(name);
 }
 
+void zoo::simulateDay(std::ostream& os) {
+    os << "=== Daily routines ===\n";
+    for (const auto& a : animals)
+        a->make_sound();
+
+    os << "\n=== Veterinary day ===\n";
+    veterinary_day(os);
+}
+
 int zoo::get_info(const string &name) {
     for (int i = 0; i < number_of_families_of_animals; i++) {
         if (name == animals[i]->get_species()) {

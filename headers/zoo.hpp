@@ -31,6 +31,8 @@ public:
 
     int get_info(const string &name);
 
+    void simulateDay(std::ostream& os);
+
     // int get_curent_number() const;
 
     void daily_feed_and_sound() const;

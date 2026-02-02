@@ -70,6 +70,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         src/crocodile.cpp
         headers/crocodile.hpp
         headers/Tratament.hpp
+        headers/App.hpp
+        src/App.cpp
 )
 target_include_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/headers)
 
