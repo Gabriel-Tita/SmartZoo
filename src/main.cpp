@@ -68,7 +68,6 @@ int main() {
     snake1.interesting_facts();
     eagle1.interesting_facts();
 
-    my_smart_zoo.apply_special_treatment();
 
     crocodile croc1("Australian Crocodile", "Great", 1, 3, 1, 0, 97, 1, true, true);
     my_smart_zoo.add(croc1);
@@ -76,10 +75,11 @@ int main() {
     list.add(croc_enclosure);
     list.print_info();
     croc1.print_info();
-    my_smart_zoo.apply_special_treatment();
     my_smart_zoo.daily_feed_and_sound();
     cout << "\nThere are " << my_smart_zoo.get_number_of_families() << " families of animals.\n\n";
     cout << "\nThere are " << list.get_number_of_enclosures() << " enclosures.\n\n";
+
+    my_smart_zoo.veterinary_day(cout);
 
     ///exceptii teste
     try {

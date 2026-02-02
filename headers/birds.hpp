@@ -1,7 +1,8 @@
 #pragma once
 #include "animal.hpp"
+#include "Tratament.hpp"
 
-class birds : public animal {
+class birds : public animal{
 private:
     bool can_fly = 0;
 

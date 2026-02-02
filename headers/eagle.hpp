@@ -1,7 +1,7 @@
 #pragma once
 #include "birds.hpp"
 
-class eagle : public birds {
+class eagle : public birds, public Tratament {
 public:
     double wingspan = -1;
 
@@ -22,6 +22,8 @@ public:
     ~eagle() override = default;
 
     void make_sound() const override;
+
+    void applyTreatment(std::ostream& os) override;
 
     animal *clone() const override;
 

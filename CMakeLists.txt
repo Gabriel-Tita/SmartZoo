@@ -69,6 +69,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/zooexception.hpp
         src/crocodile.cpp
         headers/crocodile.hpp
+        headers/Tratament.hpp
 )
 target_include_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/headers)
 

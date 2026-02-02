@@ -3,6 +3,7 @@
 #include "snake.hpp"
 #include "eagle.hpp"
 #include "zooexception.hpp"
+#include "Tratament.hpp"
 
 void zoo::add(const animal &a) {
     animal *new_animal_ptr = a.clone();
@@ -26,6 +27,16 @@ void zoo::print_info() {
     cout << "This is a list with all the creatures that we have and the information about them:\n";
     for (int i = 0; i < number_of_families_of_animals; i++) {
         animals[i]->print_info();
+    }
+}
+
+void zoo::veterinary_day(std::ostream& os) {
+    for (const auto& a : animals) {  // animals = vector<shared_ptr<animal>> (probabil)
+        if (auto* t = dynamic_cast<Tratament*>(a.get())) {
+            t->applyTreatment(os);
+        } else {
+            os << "Skipping: animal not treatable.\n";
+        }
     }
 }
 
@@ -68,26 +79,6 @@ void zoo::daily_feed_and_sound() const {
 
 int zoo::get_number_of_families() {
     return number_of_families_of_animals;
-}
-
-
-void zoo::apply_special_treatment() {
-    cout << "----Applying special treatment----\n";
-    for (const auto &animal_ptr: animals) {
-        const lion *lion_ptr = dynamic_cast<lion *>(animal_ptr.get());
-        if (lion_ptr) {
-            cout << "Lion: Apply speical treatment for the mane colour: " << lion_ptr->get_mane_colour() << "\n";
-        }
-        const eagle *eagle_ptr = dynamic_cast<eagle *>(animal_ptr.get());
-        if (eagle_ptr) {
-            cout << "Eagle: Apply special treatment for its feathers\n";
-        }
-        const snake *snake_ptr = dynamic_cast<snake *>(animal_ptr.get());
-        if (snake_ptr) {
-            cout << "Snake: Apply special treatment for its fangs\n";
-        }
-    }
-    cout << "\n";
 }
 
 

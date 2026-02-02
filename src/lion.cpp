@@ -20,6 +20,10 @@ void lion::make_sound() const {
     cout << "ROAR" << "\n\n";
 }
 
+void lion::applyTreatment(ostream& os) {
+    os << "Lion: vaccination + health check.\n";
+}
+
 animal *lion::clone() const {
     return new lion(*this);
 }

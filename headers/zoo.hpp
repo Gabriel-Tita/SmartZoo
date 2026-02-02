@@ -23,6 +23,8 @@ public:
 
     void print_info();
 
+    void veterinary_day(std::ostream& os);
+
     void add(const animal &animal);
 
     void add_individual(const string &name, const string &gender);
@@ -32,6 +34,4 @@ public:
     // int get_curent_number() const;
 
     void daily_feed_and_sound() const;
-
-    void apply_special_treatment();
 };

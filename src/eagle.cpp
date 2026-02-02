@@ -19,6 +19,10 @@ eagle &eagle::operator=(const eagle &other) {
     return *this;
 }
 
+void eagle::applyTreatment(ostream& os) {
+    os << "Eagle: wing inspection + parasite check.\n";
+}
+
 void eagle::make_sound() const {
     cout << "SCREECH" << "\n\n";
 }

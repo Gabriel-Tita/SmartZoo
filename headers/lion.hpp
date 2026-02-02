@@ -1,7 +1,8 @@
 #pragma once
 #include "mammal.hpp"
+#include "Tratament.hpp"
 
-class lion : public mammal {
+class lion : public mammal , public Tratament{
 private:
     string mane_colour = "Unknown";
 
@@ -24,6 +25,8 @@ public:
     void print_details(ostream &os) const override;
 
     void make_sound() const override;
+
+    void applyTreatment(ostream& os) override;
 
     animal *clone() const override;
 
