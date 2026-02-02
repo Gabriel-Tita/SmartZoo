@@ -27,10 +27,6 @@ public:
         return it->second;
     }
 
-    bool contains(const Key& key) const {
-        return cnt.find(key) != cnt.end();
-    }
-
     vector<pair<Key, int>> items() const {
         vector<pair<Key, int>> v;
         v.reserve(cnt.size());
