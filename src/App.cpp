@@ -1,135 +1,135 @@
 #include "App.hpp"
 #include <iostream>
 
-using namespace std;
-
 void App::run() {
 
     CounterMap<string> animalTypes;
-
-    list_of_enclosures list;
-    money wallet(0);
+    ListOfEnclosures list;
+    Money wallet(0);
     Guest guest(10, 100, 100, 0);
 
-    zoo my_smart_zoo;
-    lion lion1("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
-    snake snake1("Python", "Fair", 1, 0, 0, 1, 60, 1, true, true);
-    eagle eagle1("Golden Eagle", "Excellent", 3, 2, 2, 1, 95, 1, true, 2.0);
-    my_smart_zoo.add(lion1);
+    Zoo mySmartZoo;
+
+    const Lion lion1("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
+    const Snake snake1("Python", "Fair", 1, 0, 0, 1, 60, 1, true, true);
+    const Eagle eagle1("Golden Eagle", "Excellent", 3, 2, 2, 1, 95, 1, true, 2.0);
+
+    mySmartZoo.add(lion1);
     animalTypes.add("lion");
-    my_smart_zoo.add(snake1);
+    mySmartZoo.add(snake1);
     animalTypes.add("snake");
-    my_smart_zoo.add(eagle1);
+    mySmartZoo.add(eagle1);
     animalTypes.add("eagle");
-    my_smart_zoo.daily_feed_and_sound();
+    mySmartZoo.dailyFeedAndSound();
 
-    cout << "\nThere are " << my_smart_zoo.get_number_of_families() << " families of animals.\n\n";
+    cout << "\nThere are " << mySmartZoo.getNumberOfFamilies() << " families of animals.\n\n";
 
-    enclosure lion_enclosure("Lion", 4, 1, 2);
-    enclosure snake_enclosure("Snake", 5, 1, 2);
-    enclosure eagle_enclosure("Eagle", 6, 1, 2);
-    list.add(lion_enclosure);
-    list.add(snake_enclosure);
-    list.add(eagle_enclosure);
-    cout << "\nThere are " << list.get_number_of_enclosures() << " enclosures.\n\n";
+    const Enclosure lionEnclosure("Lion", 4, 1, 2);
+    const Enclosure snakeEnclosure("Snake", 5, 1, 2);
+    const Enclosure eagleEnclosure("Eagle", 6, 1, 2);
 
-    lion lion2("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
-    enclosure lion2_enclosure("Lion", 4, 1, 2);
-    lion2.print_info();
-    lion2_enclosure.print_info();
-    list.print_info();
+    list.add(lionEnclosure);
+    list.add(snakeEnclosure);
+    list.add(eagleEnclosure);
+    cout << "\nThere are " << list.getNumberOfEnclosures() << " enclosures.\n\n";
 
-    lion lion3 = lion2;
-    lion lion4;
+    const Lion lion2("Lion", "Good", 2, 1, 1, 1, 80, 1, true, "Golden");
+    const Enclosure lion2Enclosure("Lion", 4, 1, 2);
+    lion2.printInfo();
+    lion2Enclosure.printInfo();
+    list.printInfo();
+
+    const Lion lion3 = lion2;
+    Lion lion4;
     lion4 = lion3;
-    lion3.print_info();
+    lion3.printInfo();
     cout << lion4;
 
-    guest.generate_guests(list);
+    guest.generateGuests(list);
     cout << guest;
 
     CounterMap<string> visitorsBySpecies;
 
-    for (const auto& s : guest.get_positions()) {
+    for (const auto& s : guest.getPositions()) {
         visitorsBySpecies.add(s);
     }
 
     cout << "--- Visitors per enclosure/species ---\n";
     for (const auto& p : visitorsBySpecies.items()) {
-        cout << "    "<<p.first << " -> " << p.second << "\n";
+        cout << "    " << p.first << " -> " << p.second << "\n";
     }
 
-    list.query_add_animal(my_smart_zoo, "Lion", "Male");
+    list.queryAddAnimal(mySmartZoo, "Lion", "Male");
     cout << list;
 
-    guest.calculate_rating(my_smart_zoo);
-    guest.calculate_number_of_free_empty_spaces();
-    guest.guest_incoming(wallet, 100, list);
+    guest.calculateRating(mySmartZoo);
+    guest.calculateNumberOfFreeEmptySpaces();
+    guest.guestIncoming(wallet, 100, list);
     cout << wallet;
-    guest.calculate_number_of_free_empty_spaces();
+    guest.calculateNumberOfFreeEmptySpaces();
 
     cout << eagle1;
     cout << snake1;
     cout << lion1;
 
     cout << "----Interesting Facts----\n";
-    lion1.interesting_facts();
-    snake1.interesting_facts();
-    eagle1.interesting_facts();
+    lion1.interestingFacts();
+    snake1.interestingFacts();
+    eagle1.interestingFacts();
 
-
-    crocodile croc1("Australian Crocodile", "Great", 1, 3, 1, 0, 97, 1, true, true);
+    const Crocodile croc1("Australian Crocodile", "Great", 1, 3, 1, 0, 97, 1, true, true);
     animalTypes.add("crocodile");
-    my_smart_zoo.add(croc1);
-    enclosure croc_enclosure("Crocodile", 5, 1, 1);
-    list.add(croc_enclosure);
-    list.print_info();
-    croc1.print_info();
-    my_smart_zoo.daily_feed_and_sound();
-    cout << "\nThere are " << my_smart_zoo.get_number_of_families() << " families of animals.\n\n";
-    cout << "\nThere are " << list.get_number_of_enclosures() << " enclosures.\n\n";
+    mySmartZoo.add(croc1);
 
-    my_smart_zoo.simulateDay(std::cout);
+    const Enclosure crocEnclosure("Crocodile", 5, 1, 1);
+    list.add(crocEnclosure);
+    list.printInfo();
+    croc1.printInfo();
+    mySmartZoo.dailyFeedAndSound();
+    cout << "\nThere are " << mySmartZoo.getNumberOfFamilies() << " families of animals.\n\n";
+    cout << "\nThere are " << list.getNumberOfEnclosures() << " enclosures.\n\n";
+
+    mySmartZoo.simulateDay(std::cout);
 
     /// using prototype pattern
-    lion l("Lion", "Healthy", 10, 1, 4, 6, 9, 2, true, "Golden");
+    Lion l("Lion", "Healthy", 10, 1, 4, 6, 9, 2, true, "Golden");
 
-    const animal& base = l;                       // referință la baza abstractă
-    std::unique_ptr<animal> copy(base.clone()); // Prototype: copie polimorfă
+    const Animal& base = l;                     // referință la baza abstractă
+    std::unique_ptr<Animal> copy(base.clone()); // Prototype: copie polimorfă
 
     std::cout << "Original:\n";
-    base.print_info();
+    base.printInfo();
 
     std::cout << "\nClone:\n";
-    copy->print_info();
+    copy->printInfo();
 
-    my_smart_zoo.add(l);
-    my_smart_zoo.print_info();
+    mySmartZoo.add(l);
+    mySmartZoo.printInfo();
 
     AnimalFactory factory;
 
     auto a1 = factory.create("lion");
     auto a2 = factory.create("snake");
 
-    my_smart_zoo.add(*a1);
-    my_smart_zoo.add(*a2);
+    mySmartZoo.add(*a1);
+    mySmartZoo.add(*a2);
 
-    print_histogram(animalTypes, "Animals by species");
+    printHistogram(animalTypes, "Animals by species");
 
     ///exceptii teste
     try {
         ///my_smart_zoo.add_individual("tiger", "red");
         ///my_smart_zoo.add_individual("tiger", "Male");
-    } catch (const invalid_input_exception &e) {
+    } catch (const InvalidInputException &e) {
         cerr << "\n[Prins invalid_input_exception]: Detaliu: " << e.what() << "\n";
-    } catch (const animal_not_found_exception &e) {
+    } catch (const AnimalNotFoundException &e) {
         cerr << "\n[Animal_not_found_exception]: Detaliu: " << e.what() << "\n";
-    } catch (const cloning_failure_exception &e) {
+    } catch (const CloningFailureException &e) {
         cerr << "\n[Cloning_failure_exception]: Detaliu: " << e.what() << "\n";
-    } catch (const zooexception &e) {
+    } catch (const ZooException &e) {
         cerr << "\n[EROARE GENERICA]: o exceptie necunoscuta a fost prinsa. Detaliu: " << e.what() << "\n";
     } catch (const std::exception &e) {
-        std::cerr << "[EROARE CRITICA STANDARD C++]: Programul a intampinat o eroare standard. Detaliu:" << e.what() <<
-                "\n";
+        std::cerr << "[EROARE CRITICA STANDARD C++]: Programul a intampinat o eroare standard. Detaliu:" << e.what()
+                  << "\n";
     }
 }

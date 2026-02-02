@@ -4,21 +4,22 @@
 #include <string>
 #include <unordered_map>
 #include <functional>
-#include "animal.hpp"
-#include "lion.hpp"
-#include "snake.hpp"
-#include "eagle.hpp"
-#include "crocodile.hpp"
+#include "Animal.hpp"
+#include "Lion.hpp"
+#include "Snake.hpp"
+#include "Eagle.hpp"
+#include "Crocodile.hpp"
+
+using namespace std;
 
 class AnimalFactory {
-    using Creator = std::function<std::unique_ptr<animal>()>;
-    std::unordered_map<std::string, Creator> creators;
+    using Creator = function<unique_ptr<Animal>()>;
+    unordered_map<string, Creator> creators;
 
 public:
     AnimalFactory();
 
-    std::unique_ptr<animal> create(const std::string& type) const;
+    unique_ptr<Animal> create(const string& type) const;
 };
-
 
 #endif //OOP_ANIMALFACTORY_HPP

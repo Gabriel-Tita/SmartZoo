@@ -8,7 +8,7 @@
 using namespace std;
 
 template<typename Key>
-void print_histogram(const CounterMap<Key>& counter, const string& title) {
+void printHistogram(const CounterMap<Key>& counter, const string& title) {
     cout << "\n--- " << title << " ---\n";
     for (const auto& p : counter.items()) {
         cout << p.first << " -> " << p.second << "\n";

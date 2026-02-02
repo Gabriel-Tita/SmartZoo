@@ -53,7 +53,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         src/enclosure.cpp
         src/animal.cpp
         src/zoo.cpp
-        src/list_of_enclosures.cpp
+        src/ListOfEnclosures.cpp
         src/Guest.cpp
         src/mammal.cpp
         src/Reptile.cpp
@@ -69,7 +69,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/zooexception.hpp
         src/crocodile.cpp
         headers/crocodile.hpp
-        headers/Tratament.hpp
+        headers/Treatment.hpp
         headers/App.hpp
         src/App.cpp
         headers/AnimalFactory.hpp

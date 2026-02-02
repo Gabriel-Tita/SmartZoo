@@ -1,42 +1,40 @@
 #include "Reptile.hpp"
 
-reptile::reptile(const string &species_name, const string &health, const int number, const int viewing_platform,
-                 const int male_number, const int female_number, const int attractiveness, const int enclosure_number,
-                 bool cold_blooded)
-    : animal(species_name, health, number, viewing_platform, male_number, female_number, attractiveness,
-             enclosure_number), cold_blooded(cold_blooded) {
+Reptile::Reptile(const string &speciesName, const string &health, int number, int viewingPlatform,
+                 int maleNumber, int femaleNumber, int attractiveness, int enclosureNumber,
+                 bool coldBlooded)
+    : Animal(speciesName, health, number, viewingPlatform, maleNumber, femaleNumber, attractiveness,
+             enclosureNumber), coldBlooded(coldBlooded) {
 }
 
-reptile::reptile(const reptile &other) : animal(other), cold_blooded(other.cold_blooded) {
+Reptile::Reptile(const Reptile &other) : Animal(other), coldBlooded(other.coldBlooded) {
 }
 
-reptile &reptile::operator=(const reptile &other) {
+Reptile &Reptile::operator=(const Reptile &other) {
     if (this != &other) {
-        animal::operator=(other);
-        cold_blooded = other.cold_blooded;
+        Animal::operator=(other);
+        coldBlooded = other.coldBlooded;
     }
     return *this;
 }
 
-void reptile::do_print_info() const {
-    cout << "Species: " << species_name << "\n";
+void Reptile::doPrintInfo() const {
+    cout << "Species: " << speciesName << "\n";
     cout << "The Health of the animals: " << health << "\n";
     cout << "The number of animals: " << number << "\n";
-    cout << "The number of viewing platforms: " << viewing_platform << "\n";
-    cout << "The number of males: " << male_number << "\n";
-    cout << "The number of females: " << female_number << "\n";
+    cout << "The number of viewing platforms: " << viewingPlatform << "\n";
+    cout << "The number of males: " << maleNumber << "\n";
+    cout << "The number of females: " << femaleNumber << "\n";
     cout << "The attractiveness (a number based on how rare this animal is): " << attractiveness << "\n";
-    cout << "The number of enclosures in which this creature lives: " << enclosure_number << "\n";
-    cout << "This reptile is " << (cold_blooded ? "" : "not ") << "cold blooded." << "\n";
+    cout << "The number of enclosures in which this creature lives: " << enclosureNumber << "\n";
+    cout << "This reptile is " << (coldBlooded ? "" : "not ") << "cold blooded." << "\n";
 }
 
-
-void reptile::print_details(ostream &os) const {
-    animal::print_details(os);
-    os << "This reptile is " << (cold_blooded ? "" : "not ") << "cold blooded." << "\n";
+void Reptile::printDetails(ostream &os) const {
+    Animal::printDetails(os);
+    os << "This reptile is " << (coldBlooded ? "" : "not ") << "cold blooded." << "\n";
 }
 
-
-bool reptile::is_cold_blooded() const {
-    return cold_blooded;
+bool Reptile::isColdBlooded() const {
+    return coldBlooded;
 }

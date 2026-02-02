@@ -1,18 +1,17 @@
 #ifndef OOP_APP_HPP
 #define OOP_APP_HPP
-#include "zoo.hpp"
-#include "list_of_enclosures.hpp"
-#include "money.hpp"
+#include "Zoo.hpp"
+#include "ListOfEnclosures.hpp"
+#include "Money.hpp"
 #include "Guest.hpp"
-#include "lion.hpp"
-#include "eagle.hpp"
-#include "crocodile.hpp"
-#include "snake.hpp"
-#include "zooexception.hpp"
+#include "Lion.hpp"
+#include "Eagle.hpp"
+#include "Crocodile.hpp"
+#include "Snake.hpp"
+#include "Zooexception.hpp"
 #include "AnimalFactory.hpp"
 #include "CounterMap.hpp"
 #include "Utils.hpp"
-
 
 class App {
 public:

@@ -1,46 +1,45 @@
 #pragma once
-#include "list_of_enclosures.hpp"
-#include "money.hpp"
+#include "ListOfEnclosures.hpp"
+#include "Money.hpp"
 #include "CounterMap.hpp"
 #include "CounterMap.hpp"
 #include "Utils.hpp"
 
-
 class Guest {
     //clasa care retine informatii cu privire la vizitatori
 private:
-    int amount_per_parking_space = -1;
-    int free_parking_spaces = -1;
-    int paying_parking_spaces = -1;
+    int amountPerParkingSpace = -1;
+    int freeParkingSpaces = -1;
+    int payingParkingSpaces = -1;
     vector<string> position;
     vector<bool> car;
     int number = -1;
 
-    void set_number();
+    void setNumber();
 
-    void set_position(const list_of_enclosures &list, const int num);
+    void setPosition(const ListOfEnclosures &list, int num);
 
-    void set_parking_lot(const int num);
+    void setParkingLot(int num);
 
 public:
     Guest() = default;
 
-    Guest(const int amount_per_parking_space, const int free_parking_spaces, const int paying_parking_spaces,
-          const int number);
+    Guest(int amountPerParkingSpace, int freeParkingSpaces, int payingParkingSpaces,
+          int number);
 
     ~Guest() = default;
 
-    void generate_guests(const list_of_enclosures &list);
+    void generateGuests(const ListOfEnclosures &list);
 
-    const vector<string>& get_positions() const { return position; }
+    const vector<string>& getPositions() const { return position; }
 
     friend ostream &operator<<(ostream &os, const Guest &guest);
 
-    void calculate_rating(zoo &creatures);
+    void calculateRating(const Zoo &creatures) const;
 
-    void calculate_number_of_free_empty_spaces();
+    void calculateNumberOfFreeEmptySpaces() const;
 
-    int return_number_of_free_empty_spaces();
+    int returnNumberOfFreeEmptySpaces() const;
 
-    void guest_incoming(money &wallet, const int people, const list_of_enclosures &list);
+    void guestIncoming(Money &wallet, int people, const ListOfEnclosures &list);
 };

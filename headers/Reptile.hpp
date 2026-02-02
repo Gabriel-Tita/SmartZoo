@@ -1,31 +1,31 @@
 #pragma once
-#include "animal.hpp"
+#include "Animal.hpp"
 
-class reptile : public animal {
+class Reptile : public Animal {
 private:
-    bool cold_blooded = 0;
+    bool coldBlooded = 0;
 
 protected:
-    void do_print_info() const override;
+    void doPrintInfo() const override;
 
 public:
-    reptile() = default;
+    Reptile() = default;
 
-    reptile(const string &species_name, const string &health, const int number, const int viewing_platform,
-            const int male_number, const int female_number, const int attractiveness, const int enclosure_number,
-            bool cold_blooded);
+    Reptile(const string &speciesName, const string &health, int number, int viewingPlatform,
+            int maleNumber, int femaleNumber, int attractiveness, int enclosureNumber,
+            bool coldBlooded);
 
-    reptile(const reptile &other);
+    Reptile(const Reptile &other);
 
-    reptile &operator=(const reptile &other);
+    Reptile &operator=(const Reptile &other);
 
-    ~reptile() override = default;
+    ~Reptile() override = default;
 
-    virtual animal *clone() const override =0;
+    virtual Animal *clone() const override = 0;
 
-    virtual void make_sound() const override =0;
+    virtual void makeSound() const override = 0;
 
-    void print_details(ostream &os) const override;
+    void printDetails(ostream &os) const override;
 
-    bool is_cold_blooded() const;
+    bool isColdBlooded() const;
 };

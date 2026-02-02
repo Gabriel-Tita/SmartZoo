@@ -1,7 +1,3 @@
-//
-// Created by ciuch on 2/2/2026.
-//
-
 #ifndef OOP_COUNTERMAP_HPP
 #define OOP_COUNTERMAP_HPP
 
@@ -22,7 +18,7 @@ public:
     }
 
     int get(const Key& key) const {
-        auto it = cnt.find(key);
+        const auto it = cnt.find(key);
         if (it == cnt.end()) return 0;
         return it->second;
     }
@@ -30,10 +26,11 @@ public:
     vector<pair<Key, int>> items() const {
         vector<pair<Key, int>> v;
         v.reserve(cnt.size());
-        for (const auto& kv : cnt) v.push_back(kv);
+        for (const auto& kv : cnt) {
+            v.emplace_back(kv.first, kv.second);
+        }
         return v;
     }
 };
-
 
 #endif //OOP_COUNTERMAP_HPP
