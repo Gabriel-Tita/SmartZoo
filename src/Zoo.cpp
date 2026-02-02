@@ -7,7 +7,7 @@
 
 /**
  * @brief Adds a new animal family using polymorphic cloning.
- * @throws CloningFailureException If cloning fails.
+ * @throws CloningFailureException if cloning fails.
  */
 void Zoo::add(const Animal &a) {
     Animal *newAnimalPtr = a.clone();
