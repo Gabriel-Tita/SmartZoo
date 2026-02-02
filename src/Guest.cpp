@@ -1,4 +1,5 @@
 #include "Guest.hpp"
+
 //clasa care retine informatii cu privire la vizitatori
 void Guest::set_number() {
     number++;
@@ -22,12 +23,23 @@ Guest::Guest(const int amount_per_parking_space, const int free_parking_spaces, 
 
 void Guest::generate_guests(const list_of_enclosures &list) {
     int number_of_enclosures = list.get_number_of_enclosures();
+
+    CounterMap<int> carCount; // 0 = fara masina, 1 = cu masina
+
     for (int i = 0; i < 100; i++) {
+        int hasCar = i % 2;
+
         set_position(list, i % number_of_enclosures);
-        set_parking_lot(i % 2);
+        set_parking_lot(hasCar);
         set_number();
+
+        carCount.add(hasCar); // template class + colectare statistica
     }
+
+    // template function - instantiere cu Key = int
+    print_histogram(carCount, "Guests with car (1) vs without car (0)");
 }
+
 
 ostream &operator<<(ostream &os, const Guest &guest) {
     os << "This is the list with the location of each guest!" << "\n";

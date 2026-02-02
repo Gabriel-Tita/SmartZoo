@@ -75,6 +75,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/AnimalFactory.hpp
         src/AnimalFactory.cpp
         headers/CounterMap.hpp
+        headers/Utils.hpp
 )
 target_include_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/headers)
 

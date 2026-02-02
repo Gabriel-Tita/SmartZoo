@@ -2,6 +2,8 @@
 #include "list_of_enclosures.hpp"
 #include "money.hpp"
 #include "CounterMap.hpp"
+#include "CounterMap.hpp"
+#include "utils.hpp"
 
 
 class Guest {

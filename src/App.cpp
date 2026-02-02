@@ -114,10 +114,7 @@ void App::run() {
     my_smart_zoo.add(*a1);
     my_smart_zoo.add(*a2);
 
-    cout<<"Number of animals from each species:\n";
-    for (const auto& p : animalTypes.items()) {
-        cout << "    "<<p.first << " -> " << p.second << "\n";
-    }
+    print_histogram(animalTypes, "Animals by species");
 
     ///exceptii teste
     try {

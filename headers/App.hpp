@@ -11,6 +11,7 @@
 #include "zooexception.hpp"
 #include "AnimalFactory.hpp"
 #include "CounterMap.hpp"
+#include "utils.hpp"
 
 
 class App {
