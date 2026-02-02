@@ -10,6 +10,7 @@
 #include "snake.hpp"
 #include "zooexception.hpp"
 #include "AnimalFactory.hpp"
+#include "CounterMap.hpp"
 
 
 class App {

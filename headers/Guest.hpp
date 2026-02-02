@@ -1,6 +1,8 @@
 #pragma once
 #include "list_of_enclosures.hpp"
 #include "money.hpp"
+#include "CounterMap.hpp"
+
 
 class Guest {
     //clasa care retine informatii cu privire la vizitatori
@@ -27,6 +29,10 @@ public:
     ~Guest() = default;
 
     void generate_guests(const list_of_enclosures &list);
+
+    const vector<string>& get_positions() const { return position; }
+
+    int get_number() const { return number; }
 
     friend ostream &operator<<(ostream &os, const Guest &guest);
 

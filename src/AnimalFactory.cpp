@@ -24,3 +24,4 @@ unique_ptr<animal> AnimalFactory::create(const string& type) const {
 
     return it->second(); // creează obiectul
 }
+

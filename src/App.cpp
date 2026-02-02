@@ -1,8 +1,12 @@
 #include "App.hpp"
 #include <iostream>
+
 using namespace std;
 
 void App::run() {
+
+    CounterMap<string> animalTypes;
+
     list_of_enclosures list;
     money wallet(0);
     Guest guest(10, 100, 100, 0);
@@ -12,8 +16,11 @@ void App::run() {
     snake snake1("Python", "Fair", 1, 0, 0, 1, 60, 1, true, true);
     eagle eagle1("Golden Eagle", "Excellent", 3, 2, 2, 1, 95, 1, true, 2.0);
     my_smart_zoo.add(lion1);
+    animalTypes.add("lion");
     my_smart_zoo.add(snake1);
+    animalTypes.add("snake");
     my_smart_zoo.add(eagle1);
+    animalTypes.add("eagle");
     my_smart_zoo.daily_feed_and_sound();
 
     cout << "\nThere are " << my_smart_zoo.get_number_of_families() << " families of animals.\n\n";
@@ -40,6 +47,18 @@ void App::run() {
 
     guest.generate_guests(list);
     cout << guest;
+
+    CounterMap<string> visitorsBySpecies;
+
+    for (auto& s : guest.get_positions()) {
+        visitorsBySpecies.add(s);
+    }
+
+    cout << "--- Visitors per enclosure/species ---\n";
+    for (auto& p : visitorsBySpecies.items()) {
+        cout << "    "<<p.first << " -> " << p.second << "\n";
+    }
+
     list.query_add_animal(my_smart_zoo, "Lion", "Male");
     cout << list;
 
@@ -60,6 +79,7 @@ void App::run() {
 
 
     crocodile croc1("Australian Crocodile", "Great", 1, 3, 1, 0, 97, 1, true, true);
+    animalTypes.add("crocodile");
     my_smart_zoo.add(croc1);
     enclosure croc_enclosure("Crocodile", 5, 1, 1);
     list.add(croc_enclosure);
@@ -74,7 +94,7 @@ void App::run() {
     /// using prototype pattern
     lion l("Lion", "Healthy", 10, 1, 4, 6, 9, 2, true, "Golden");
 
-    animal& base = l;                       // referință la baza abstractă
+    const animal& base = l;                       // referință la baza abstractă
     std::unique_ptr<animal> copy(base.clone()); // Prototype: copie polimorfă
 
     std::cout << "Original:\n";
@@ -93,6 +113,11 @@ void App::run() {
 
     my_smart_zoo.add(*a1);
     my_smart_zoo.add(*a2);
+
+    cout<<"Number of animals from each species:\n";
+    for (auto& p : animalTypes.items()) {
+        cout << "    "<<p.first << " -> " << p.second << "\n";
+    }
 
     ///exceptii teste
     try {
