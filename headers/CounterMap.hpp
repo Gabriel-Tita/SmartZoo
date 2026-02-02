@@ -30,7 +30,7 @@ public:
     vector<pair<Key, int>> items() const {
         vector<pair<Key, int>> v;
         v.reserve(cnt.size());
-        for (auto& kv : cnt) v.push_back(kv);
+        for (const auto& kv : cnt) v.push_back(kv);
         return v;
     }
 };

@@ -50,12 +50,12 @@ void App::run() {
 
     CounterMap<string> visitorsBySpecies;
 
-    for (auto& s : guest.get_positions()) {
+    for (const auto& s : guest.get_positions()) {
         visitorsBySpecies.add(s);
     }
 
     cout << "--- Visitors per enclosure/species ---\n";
-    for (auto& p : visitorsBySpecies.items()) {
+    for (const auto& p : visitorsBySpecies.items()) {
         cout << "    "<<p.first << " -> " << p.second << "\n";
     }
 
@@ -115,7 +115,7 @@ void App::run() {
     my_smart_zoo.add(*a2);
 
     cout<<"Number of animals from each species:\n";
-    for (auto& p : animalTypes.items()) {
+    for (const auto& p : animalTypes.items()) {
         cout << "    "<<p.first << " -> " << p.second << "\n";
     }
 
